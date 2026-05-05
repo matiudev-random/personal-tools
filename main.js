@@ -12,6 +12,15 @@ const TOOLS = [
     status: "active",
   },
 
+    {
+    title:  "Ruleta Equipos",
+    desc:   "Ruleta para distribuir los Equipos de forma equitativa en los partidos.",
+    icon:   "⚽",
+    tag:    "Deporte",
+    href:   "soccer-roulette/index.html",
+    status: "active",
+  },
+
   // ── AÑADE TUS OTRAS APPS AQUÍ ──────────────────────────────────────────
   // {
   //   title:  "Nombre de la app",
@@ -22,21 +31,12 @@ const TOOLS = [
   //   status: "active",
   // },
   // ───────────────────────────────────────────────────────────────────────
-
-  // Placeholder de ejemplo (borrar cuando tengas más apps)
-  {
-    title:  "Nueva app",
-    desc:   "Próximamente. Edita main.js para añadir tus herramientas.",
-    icon:   "＋",
-    tag:    "Pronto",
-    href:   "#",
-    status: "wip",
-  },
 ];
 
 /* Accesos rápidos en la barra inferior */
 const QUICK_LINKS = [
   { label: "Rodilla",     icon: "🦵", href: "knee-rehab/index.html" },
+  { label: "Ruleta",     icon: "⚽", href: "soccer-roulette/index.html" },
   { label: "Inicio",      icon: "⌂",  href: "#" },
 ];
 
