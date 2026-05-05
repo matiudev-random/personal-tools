@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DIVISIÓN DE EQUIPOS</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <svg class="bg-noise" xmlns="http://www.w3.org/2000/svg">
+      <filter id="n">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.65"
+          numOctaves="3"
+          stitchTiles="stitch"
+        />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#n)" />
+    </svg>
+    <div class="bg-grid"></div>
+
+    <header>
+        <a href="../index.html" class="back-btn">← Dashboard</a>
+
+      <div class="logo-pulse"><span class="logo-icon">⚽</span></div>
+      <div>
+        <div class="header-title">DIVISIÓN DE EQUIPOS</div>
+        <div class="header-sub">Sistema de sorteo balanceado por habilidad</div>
+      </div>
+      <div class="status-dot" title="Sistema activo"></div>
+    </header>
+
+    <main>
+      <div class="info-strip">
+        <div class="info-chip">
+          <div class="chip-dot green"></div>
+          Sistema activo
+        </div>
+        <div class="info-chip">
+          <div class="chip-dot orange"></div>
+          Equipo A
+        </div>
+        <div class="info-chip">
+          <div class="chip-dot blue"></div>
+          Equipo B
+        </div>
+        <div class="info-chip" id="selected-info">
+          <div class="chip-dot green"></div>
+          <span id="sel-count">0</span> seleccionados
+        </div>
+      </div>
+
+      <div class="players-area">
+        <div class="player-pool card">
+          <div class="mode-tabs">
+            <button class="mode-tab active" onclick="switchTab('list')">
+              Lista de Jugadores
+            </button>
+            <button class="mode-tab" onclick="switchTab('add')">
+              + Agregar
+            </button>
+          </div>
+
+          <div id="tab-list">
+            <div class="select-all-row">
+              <div class="section-label">Jugadores disponibles</div>
+              <div style="display: flex; gap: 8px; align-items: center">
+                <span class="counter-badge" id="counter-badge">0 / 0</span>
+                <button class="btn btn-secondary btn-sm" onclick="toggleAll()">
+                  Sel. todos
+                </button>
+              </div>
+            </div>
+            <ul class="player-list" id="player-list"></ul>
+          </div>
+
+          <div id="tab-add" style="display: none">
+            <div class="section-label">Agregar jugador</div>
+            <div class="add-player-form">
+              <div class="input-group">
+                <label class="input-label">Nombre</label>
+                <input
+                  class="txt-input"
+                  id="new-name"
+                  type="text"
+                  placeholder="Nombre del jugador..."
+                />
+              </div>
+              <div class="input-group">
+                <label class="input-label">Posición</label>
+                <select class="txt-input" id="new-pos">
+                  <option value="ARQ">Arquero</option>
+                  <option value="DEF">Defensor</option>
+                  <option value="MED">Mediocampista</option>
+                  <option value="DEL" selected>Delantero</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <label class="input-label"
+                  >Habilidad —
+                  <span class="skill-val" id="skill-display">7</span></label
+                >
+                <input
+                  class="skill-slider"
+                  id="new-skill"
+                  type="range"
+                  min="1"
+                  max="10"
+                  value="7"
+                  oninput="
+                    document.getElementById('skill-display').textContent =
+                      this.value
+                  "
+                />
+              </div>
+              <button class="btn btn-primary" onclick="addPlayer()">
+                Agregar jugador →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="display: flex; flex-direction: column">
+          <div class="section-label">Instrucciones</div>
+          <div
+            style="
+              font-size: 11px;
+              color: var(--text-muted);
+              line-height: 1.8;
+              margin-top: 8px;
+            "
+          >
+            <p style="margin-bottom: 10px">
+              ① Selecciona los jugadores que van a participar en el partido de
+              hoy.
+            </p>
+            <p style="margin-bottom: 10px">
+              ② Presiona
+              <span style="color: var(--accent)">SORTEAR EQUIPOS</span> para
+              distribuir jugadores balanceando el promedio de habilidad.
+            </p>
+            <p style="margin-bottom: 10px">
+              ③ El algoritmo optimiza para que ambos equipos tengan el mismo
+              promedio.
+            </p>
+            <p>
+              ④ Puedes agregar jugadores nuevos con la pestaña
+              <span style="color: var(--accent)">+ AGREGAR</span>.
+            </p>
+          </div>
+          <hr class="divider" />
+          <div class="section-label">Habilidad — referencia</div>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 6px;
+              margin-top: 8px;
+            "
+          >
+            <div style="display: flex; align-items: center; gap: 8px">
+              <div
+                style="
+                  width: 24px;
+                  font-family: &quot;Bebas Neue&quot;;
+                  font-size: 18px;
+                  color: var(--accent);
+                "
+              >
+                9
+              </div>
+              <div
+                style="
+                  flex: 1;
+                  height: 4px;
+                  background: linear-gradient(
+                    90deg,
+                    var(--accent),
+                    var(--accent-dark)
+                  );
+                  border-radius: 2px;
+                  width: 90%;
+                "
+              ></div>
+              <span style="font-size: 10px; color: var(--text-muted)"
+                >Crack</span
+              >
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px">
+              <div
+                style="
+                  width: 24px;
+                  font-family: &quot;Bebas Neue&quot;;
+                  font-size: 18px;
+                  color: var(--accent);
+                "
+              >
+                7
+              </div>
+              <div
+                style="
+                  flex: 1;
+                  height: 4px;
+                  background: var(--accent);
+                  border-radius: 2px;
+                  opacity: 0.7;
+                  width: 70%;
+                "
+              ></div>
+              <span style="font-size: 10px; color: var(--text-muted)"
+                >Bueno</span
+              >
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px">
+              <div
+                style="
+                  width: 24px;
+                  font-family: &quot;Bebas Neue&quot;;
+                  font-size: 18px;
+                  color: var(--accent);
+                "
+              >
+                5
+              </div>
+              <div
+                style="
+                  flex: 1;
+                  height: 4px;
+                  background: var(--accent);
+                  border-radius: 2px;
+                  opacity: 0.5;
+                  width: 50%;
+                "
+              ></div>
+              <span style="font-size: 10px; color: var(--text-muted)"
+                >Regular</span
+              >
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px">
+              <div
+                style="
+                  width: 24px;
+                  font-family: &quot;Bebas Neue&quot;;
+                  font-size: 18px;
+                  color: var(--accent);
+                "
+              >
+                3
+              </div>
+              <div
+                style="
+                  flex: 1;
+                  height: 4px;
+                  background: var(--accent);
+                  border-radius: 2px;
+                  opacity: 0.3;
+                  width: 30%;
+                "
+              ></div>
+              <span style="font-size: 10px; color: var(--text-muted)"
+                >Novato</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="roulette-section card">
+        <div class="section-label">Sorteo de equipos</div>
+        <div class="roulette-canvas-wrap">
+          <canvas id="roulette" width="320" height="320"></canvas>
+          <div class="roulette-pointer"></div>
+        </div>
+        <div class="spin-state" id="spin-state">
+          <div class="spin-msg" id="spin-msg">Sorteando jugadores...</div>
+        </div>
+        <div class="roulette-controls">
+          <button
+            class="btn btn-primary"
+            onclick="startSorteo()"
+            id="btn-sortear"
+          >
+            ⚡ SORTEAR EQUIPOS
+          </button>
+          <button
+            class="btn btn-secondary"
+            onclick="resetSorteo()"
+            id="btn-reset"
+          >
+            ↺ REINICIAR
+          </button>
+          <div
+            style="margin-left: auto; font-size: 10px; color: var(--text-muted)"
+          >
+            <span id="selected-count-label">0</span> jugadores seleccionados
+          </div>
+        </div>
+      </div>
+
+      <div id="teams-output" style="display: none">
+        <div class="section-label">Resultado del sorteo</div>
+        <div class="teams-display">
+          <div class="card team-card team-a" id="team-a-card">
+            <div class="team-header">
+              <div class="team-name">EQUIPO A</div>
+              <div class="team-avg-badge" id="avg-a">—</div>
+            </div>
+            <div id="team-a-players"></div>
+          </div>
+          <div class="card team-card team-b" id="team-b-card">
+            <div class="team-header">
+              <div class="team-name">EQUIPO B</div>
+              <div class="team-avg-badge" id="avg-b">—</div>
+            </div>
+            <div id="team-b-players"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-txt">⚽ División de Equipos — Sistema Balanceado</div>
+      <div class="footer-txt">v1.0 — 2025</div>
+    </footer>
+
+<script src="main.js"></script>
+  </body>
+</html>
