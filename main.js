@@ -77,7 +77,7 @@ function renderTools() {
     a.style.animationDelay = `${i * 80}ms`;
 
     // Abre en nueva pestaña si no es ancla
-    // if (tool.href !== "#") a.target = "_blank";
+    if (tool.href !== "#") a.target = "_self";
 
     a.innerHTML = `
       <div class="card-accent"></div>
@@ -111,7 +111,7 @@ function renderQuickBar() {
     const a = document.createElement("a");
     a.className = "quick-btn";
     a.href      = link.href;
-    // if (link.href !== "#") a.target = "_blank";
+    if (link.href !== "#") a.target = "_self";
     a.innerHTML = `<span class="qb-icon">${link.icon}</span>${link.label}`;
     bar.appendChild(a);
   });
