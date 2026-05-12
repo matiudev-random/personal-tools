@@ -23,6 +23,27 @@ Hecha cuando tuve tendinopatía rotuliana para no perderme entre tantos ejercici
 
 ---
 
+## 🗂️ Estructura
+
+```
+personal-tools/
+├── index.html          # Dashboard principal
+├── main.js             # Registro de herramientas
+├── styles.css          # Estilos del dashboard
+├── shared.css          # Variables, reset y texturas globales
+├── _template/          # Punto de partida para nuevas apps
+│   ├── index.html
+│   └── styles.css
+├── soccer-roulette/
+└── knee-rehab/
+```
+
+### `shared.css`
+
+Todas las apps comparten un mismo archivo base con las variables de diseño (colores, fuentes), el reset CSS y las texturas de fondo (grilla y ruido). Cada app solo define sus estilos propios en su `styles.css`.
+
+---
+
 ## 🛠️ Stack
 
 Todo vanilla: HTML, CSS y JS. Sin dependencias, sin build tools, se abre directo en el navegador. Las fuentes son de Google Fonts (Bebas Neue, Space Mono, DM Serif Display).
@@ -31,17 +52,19 @@ Todo vanilla: HTML, CSS y JS. Sin dependencias, sin build tools, se abre directo
 
 ## ➕ Agregar una herramienta nueva
 
-1. Crear una carpeta nueva con su `index.html`, `main.js` y `styles.css`
-2. Registrarla en el array `TOOLS` de `main.js` en la raíz
-3. Listo, aparece en el dashboard
+1. **Copiar la carpeta `_template/`** y renombrarla
+2. **Editar el `index.html`** — cambiar título, categoría y descripción en el header
+3. **Escribir los estilos** en `styles.css` (variables y fondo ya vienen de `shared.css`)
+4. **Crear `main.js`** con la lógica de la app
+5. **Registrarla** en el array `TOOLS` del `main.js` raíz
 
 ```js
 {
-  title: "Nombre",
-  description: "Para qué sirve",
-  icon: "🔧",
-  tag: "categoría",
-  href: "./nombre-carpeta/",
+  title:  "Nombre",
+  desc:   "Para qué sirve",
+  icon:   "🔧",
+  tag:    "Categoría",
+  href:   "nombre-carpeta/index.html",
   status: "active"
 }
 ```
