@@ -373,6 +373,50 @@ body { line-height: 1.6; }
 }
 
 /* ───────────────────────────────────────────
+   SEMANA ACTUAL
+─────────────────────────────────────────── */
+.current-week-banner {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* ───────────────────────────────────────────
+   ESTADOS DE EJERCICIO (semanas)
+─────────────────────────────────────────── */
+.exercise-row.ex-upcoming {
+  opacity: 0.3;
+  filter: grayscale(0.7);
+  pointer-events: none;
+}
+
+.exercise-row.ex-past {
+  opacity: 0.55;
+}
+
+.ex-state-tag {
+  display: inline-block;
+  font-size: 9px;
+  font-family: var(--font-mono);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  padding: 2px 6px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.ex-tag-upcoming {
+  background: #1a1a2e;
+  color: #5555aa;
+  border: 1px solid #2a2a50;
+}
+
+/* ───────────────────────────────────────────
    RESPONSIVE
 ─────────────────────────────────────────── */
 @media (max-width: 580px) {
