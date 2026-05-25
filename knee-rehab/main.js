@@ -1,4 +1,4 @@
-const START_DATE = new Date('2026-05-04');
+const START_DATE = new Date('2026-05-18');
 
 function getCurrentWeek() {
   const diffMs = Date.now() - START_DATE.getTime();
