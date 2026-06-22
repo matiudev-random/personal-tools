@@ -21,6 +21,15 @@ const TOOLS = [
     status: "active",
   },
 
+  {
+    title:  "Sincronizar",
+    desc:   "Sincroniza eventos de vida diaria y fechas de la universidad entre Notion y Google Calendar.",
+    icon:   "⚡",
+    tag:    "Productividad",
+    href:   "notion-sync/index.html",
+    status: "active",
+  },
+
   // ── AÑADE TUS OTRAS APPS AQUÍ ──────────────────────────────────────────
   // {
   //   title:  "Nombre de la app",
@@ -37,6 +46,7 @@ const TOOLS = [
 const QUICK_LINKS = [
   { label: "Rodilla",     icon: "🦵", href: "knee-rehab/index.html" },
   { label: "Ruleta",     icon: "⚽", href: "soccer-roulette/index.html" },
+  { label: "Sincronizar", icon: "⚡", href: "notion-sync/index.html" },
   { label: "Inicio",      icon: "⌂",  href: "#" },
 ];
 

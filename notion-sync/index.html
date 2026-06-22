@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sincronizar — Notion ↔ Calendar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="noise"></div>
+  <div class="grid-bg"></div>
+
+  <header class="site-header">
+    <a href="../index.html" class="back-btn">← Dashboard</a>
+    <div class="header-center">
+      <div class="header-sub">Notion ↔ Google Calendar</div>
+      <h1>CENTRO DE SINCRONIZACIÓN</h1>
+      <p>Sincroniza tus eventos y fechas importantes con un click</p>
+    </div>
+    <div></div>
+  </header>
+
+  <main>
+    <div class="sync-card card">
+      <div class="sync-label"><span class="sync-icon">📅</span> Calendario personal</div>
+      <p class="sync-desc">Sincroniza tus eventos de vida diaria con Notion.</p>
+      <button class="btn btn-primary sync-btn" id="syncBtnVida" onclick="sincronizar('vida')">Sincronizar ahora</button>
+      <div class="sync-message" id="statusVida"></div>
+    </div>
+
+    <div class="sync-card card">
+      <div class="sync-label"><span class="sync-icon">🎓</span> Pruebas y exámenes</div>
+      <p class="sync-desc">Sincroniza fechas de pruebas y exámenes de tu universidad.</p>
+      <button class="btn btn-primary sync-btn" id="syncBtnUni" onclick="sincronizar('uni')">Sincronizar ahora</button>
+      <div class="sync-message" id="statusUni"></div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-txt">⚡ Sincronización — Notion + Google Calendar</div>
+    <div class="footer-txt">v1.0 — 2026</div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
