@@ -30,6 +30,15 @@ const TOOLS = [
     status: "active",
   },
 
+  {
+    title:  "Camino a Doomsday",
+    desc:   "Orden cronológico de todo el UCM (y sus universos aparte) para llegar a Avengers: Doomsday sin perderte nada.",
+    icon:   "🛡️",
+    tag:    "Entretenimiento",
+    href:   "doomsday-timeline/index.html",
+    status: "active",
+  },
+
   // ── AÑADE TUS OTRAS APPS AQUÍ ──────────────────────────────────────────
   // {
   //   title:  "Nombre de la app",
@@ -47,6 +56,7 @@ const QUICK_LINKS = [
   { label: "Rodilla",     icon: "🦵", href: "knee-rehab/index.html" },
   { label: "Ruleta",     icon: "⚽", href: "soccer-roulette/index.html" },
   { label: "Sincronizar", icon: "⚡", href: "notion-sync/index.html" },
+  { label: "Doomsday",    icon: "🛡️", href: "doomsday-timeline/index.html" },
   { label: "Inicio",      icon: "⌂",  href: "#" },
 ];
 

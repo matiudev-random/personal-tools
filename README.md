@@ -21,6 +21,9 @@ Para cuando hay que armar equipos y nadie se pone de acuerdo. Cargás los jugado
 ### 🦵 Rehabilitación de Rodilla (`/knee-rehab`)
 Hecha cuando tuve tendinopatía rotuliana para no perderme entre tantos ejercicios y fases. Son 5 fases progresivas (desde reposo hasta volver a jugar al fútbol), con los ejercicios de cada sesión, series/reps y algunas notas. Incluye la "regla del dolor" para saber cuándo parar.
 
+### 🛡️ Camino a Doomsday (`/doomsday-timeline`)
+Orden cronológico interno de todo el UCM (pelis, series y especiales, más los universos aparte de Fox/Sony y las animaciones) para llegar a *Avengers: Doomsday* sin perderte nada. Tiene checklist con avance guardado en el navegador, filtros por prioridad (esencial / recomendado / opcional) y una cuenta regresiva en vivo al estreno.
+
 ---
 
 ## 🗂️ Estructura
@@ -35,7 +38,9 @@ personal-tools/
 │   ├── index.html
 │   └── styles.css
 ├── soccer-roulette/
-└── knee-rehab/
+├── knee-rehab/
+├── notion-sync/
+└── doomsday-timeline/
 ```
 
 ### `shared.css`
