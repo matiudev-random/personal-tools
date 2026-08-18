@@ -94,6 +94,17 @@ const DATA = [
 {id:"fxd",t:"Los 4 Fantásticos (Fox)",u:"saga Fox",r:"2005",k:"Película",p:"opcional",n:"Pura curiosidad histórica"},
 {id:"fxe",t:"Los 4 Fantásticos y Silver Surfer",u:"saga Fox",r:"2007",k:"Película",p:"opcional",n:"Pura curiosidad histórica"},
 {id:"fxf",t:"Cuatro Fantásticos (Fox)",u:"saga Fox",r:"2015",k:"Película",p:"opcional",n:"Salvo que quieras sufrir, sáltatela"}]},
+{tag:"Aparte",name:"El Venomverse de Sony",aside:true,note:"Universo separado del UCM. No hace falta para entender Doomsday, pero un simbionte quedó suelto en la Tierra-616 tras el hechizo de No Way Home — posible semilla para el futuro de Spider-Man.",items:[
+{id:"vn1",t:"Venom",u:"universo propio de Sony",r:"2018",k:"Película",p:"opcional",n:"Eddie Brock se fusiona con el simbionte; arranca la trilogía"},
+{id:"vn2",t:"Venom: Let There Be Carnage",u:"universo propio de Sony",r:"2021",k:"Película",p:"opcional",n:"Aparece Carnage; en la escena poscréditos Eddie cruza brevemente a la Tierra-616"},
+{id:"vn3",t:"Venom: The Last Dance",u:"universo propio de Sony",r:"2024",k:"Película",p:"opcional",n:"Eddie vuelve a su universo tras el hechizo de No Way Home y deja un simbionte suelto en la Tierra-616"}]},
+{tag:"Aparte",name:"Netflix: Daredevil y compañía",aside:true,note:"Series de Marvel Television, técnicamente fuera del canon estricto del UCM, pero Born Again recicla a los mismos actores de Fisk y Daredevil.",items:[
+{id:"nf1",t:"Daredevil",u:"Hell's Kitchen",r:"2015-2018",k:"Serie · 3 temp.",p:"opcional",n:"Charlie Cox como Matt Murdock; Vincent D'Onofrio como Kingpin"},
+{id:"nf2",t:"Jessica Jones",u:"Hell's Kitchen",r:"2015-2019",k:"Serie · 3 temp.",p:"opcional",n:"Krysten Ritter; introduce a Kilgrave"},
+{id:"nf3",t:"Luke Cage",u:"Harlem",r:"2016-2018",k:"Serie · 2 temp.",p:"opcional",n:"Mike Colter como Luke Cage"},
+{id:"nf4",t:"Iron Fist",u:"Nueva York",r:"2017-2018",k:"Serie · 2 temp.",p:"opcional",n:"Finn Jones como Danny Rand"},
+{id:"nf5",t:"The Defenders",u:"Nueva York",r:"2017",k:"Serie · 8 ep.",p:"opcional",n:"Cruce de los cuatro héroes de Netflix"},
+{id:"nf6",t:"The Punisher",u:"Nueva York",r:"2017-2019",k:"Serie · 2 temp.",p:"opcional",n:"Jon Bernthal antes de su regreso en Born Again y el especial de 2026"}]},
 {tag:"Falta",name:"Aún no se estrena",note:"Los dos últimos títulos antes de Doomsday.",items:[
 {id:"pxa",t:"VisionQuest",u:"",r:"14 oct 2026",k:"Serie",p:"pendiente",n:"Cierra la trilogía de WandaVision y Agatha All Along"},
 {id:"pxb",t:"Tu amistoso vecino Spider-Man · T2",u:"",r:"otoño 2026",k:"Serie animada",p:"pendiente",n:"Debutan Venom y Gwen Stacy"}]}
