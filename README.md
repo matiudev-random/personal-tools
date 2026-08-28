@@ -39,7 +39,6 @@ personal-tools/
 │   └── styles.css
 ├── soccer-roulette/
 ├── knee-rehab/
-├── notion-sync/
 └── doomsday-timeline/
 ```
 
