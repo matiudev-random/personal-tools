@@ -13,7 +13,7 @@ const DATA = [
 {id:"f1d",t:"Thor",u:"2011",r:"2011",k:"Película",p:"recomendado",n:"Thor y Loki, dos piezas grandes del final"},
 {id:"f1f",t:"Los Vengadores",u:"2012",r:"2012",k:"Película",p:"esencial",n:"El equipo se forma; el molde de todo lo que viene"}]},
 {tag:"Bloque 3",name:"El universo se ensancha",note:"Cae S.H.I.E.L.D., llega lo cósmico y aparece el Reino Cuántico.",items:[
-{id:"f2a",t:"Iron Man 3",u:"Navidad de 2012",r:"2013",k:"Película",p:"opcional",n:"Aquí sale Trevor Slattery, que reaparece en Wonder Man"},
+{id:"f2a",t:"Iron Man 3",u:"Navidad de 2012",r:"2013",k:"Película",p:"opcional",n:"Aquí sale Trevor Slattery, el falso Mandarín"},
 {id:"f2b",t:"Thor: El mundo oscuro",u:"2013",r:"2013",k:"Película",p:"opcional",n:"La más prescindible de toda la saga"},
 {id:"f2c",t:"Capitán América: El Soldado de Invierno",u:"2014",r:"2014",k:"Película",p:"recomendado",n:"Bucky, Sam Wilson y el derrumbe de S.H.I.E.L.D."},
 {id:"f2d",t:"Guardianes de la Galaxia",u:"2014",r:"2014",k:"Película",p:"recomendado",n:"Se abre el frente cósmico"},
@@ -35,7 +35,6 @@ const DATA = [
 {id:"f4a",t:"WandaVision",u:"3 semanas tras Endgame",r:"2021",k:"Serie · 9 ep.",p:"esencial",n:"Wanda se convierte en la Bruja Escarlata"},
 {id:"f4b",t:"Falcon y el Soldado de Invierno",u:"6 meses tras Endgame",r:"2021",k:"Serie · 6 ep.",p:"esencial",n:"Sam hereda el escudo; aparece John Walker"},
 {id:"f4f",t:"Shang-Chi y la leyenda de los Diez Anillos",u:"post-Blip",r:"2021",k:"Película",p:"recomendado",n:"Los Diez Anillos siguen siendo un hilo suelto"},
-{id:"f4g",t:"Eternals",u:"post-Blip",r:"2021",k:"Película",p:"opcional",n:"Bastante al margen del resto"},
 {id:"f3k",t:"Spider-Man: Lejos de casa",u:"8 meses tras Endgame",r:"2019",k:"Película",p:"recomendado",n:"Mysterio revela la identidad de Peter"},
 {id:"f4i",t:"Spider-Man: No Way Home",u:"justo después",r:"2021",k:"Película",p:"esencial",n:"El hechizo que rompe las realidades y borra a Peter del mundo"},
 {id:"f4h",t:"Hawkeye",u:"Navidad siguiente",r:"2021",k:"Serie · 6 ep.",p:"recomendado",n:"Kate Bishop, Yelena y el regreso de Kingpin"},
@@ -43,8 +42,6 @@ const DATA = [
 {id:"f4k",t:"Doctor Strange en el multiverso de la locura",u:"tras No Way Home",r:"2022",k:"Película",p:"esencial",n:"Incursiones, variantes y la primera visita a otra Tierra"},
 {id:"f4l",t:"Ms. Marvel",u:"tras No Way Home",r:"2022",k:"Serie · 6 ep.",p:"recomendado",n:"Kamala Khan y el primer guiño mutante del UCM"},
 {id:"f4m",t:"Thor: Love and Thunder",u:"tras Endgame",r:"2022",k:"Película",p:"opcional",n:"Poco impacto en la trama mayor"},
-{id:"f4n",t:"She-Hulk: Abogada Hulka",u:"sin fecha clara",r:"2022",k:"Serie · 9 ep.",p:"opcional",n:"Trae de vuelta a Abominación y a Daredevil"},
-{id:"f4o",t:"Werewolf by Night",u:"sin fecha clara",r:"2022",k:"Especial · 1 h",p:"opcional",n:"Terror gótico en blanco y negro"},
 {id:"f4p",t:"Black Panther: Wakanda Forever",u:"tras Ms. Marvel",r:"2022",k:"Película",p:"esencial",n:"Shuri, Namor y los wakandianos que van a Doomsday"},
 {id:"f4q",t:"Especial de Navidad de los Guardianes",u:"Navidad siguiente",r:"2022",k:"Especial · 45 min",p:"opcional",n:"Puro cariño, cero trama"},
 {id:"f5g",t:"Echo",u:"5 meses tras Hawkeye",r:"2024",k:"Serie · 5 ep.",p:"opcional",n:"Spin-off callejero; deja a Fisk listo para Born Again"},
@@ -55,14 +52,12 @@ const DATA = [
 {id:"f5c",t:"Guardianes de la Galaxia Vol. 3",u:"post-Blip",r:"2023",k:"Película",p:"opcional",n:"Cierre emotivo del grupo"},
 {id:"f5d",t:"Invasión secreta",u:"post-Blip",r:"2023",k:"Serie · 6 ep.",p:"recomendado",n:"Cambia la situación de Rhodey y del gobierno"},
 {id:"f5e",t:"Loki · Temporada 2",u:"fuera del tiempo",r:"2023",k:"Serie · 6 ep.",p:"esencial",n:"Loki termina sosteniendo el multiverso entero"},
-{id:"f5f",t:"The Marvels",u:"tras Invasión secreta",r:"2023",k:"Película",p:"recomendado",n:"La escena poscréditos abre la puerta a los mutantes"},
 {id:"f5k",t:"Agatha All Along",u:"3 años tras WandaVision",r:"2024",k:"Serie · 9 ep.",p:"recomendado",n:"Billy Maximoff; enlaza directo con VisionQuest"},
 {id:"f5j",t:"Deadpool y Lobezno",u:"tras Loki T2",r:"2024",k:"Película",p:"esencial",n:"Ancla el multiverso de Fox al UCM"},
 {id:"f5n",t:"Capitán América: Brave New World",u:"tras Wakanda Forever",r:"2025",k:"Película",p:"esencial",n:"Sam ya como Capitán América y el nuevo mapa político"},
 {id:"f5o",t:"Thunderbolts*",u:"tras Brave New World",r:"2025",k:"Película",p:"esencial",n:"El punto de partida directo de Doomsday"},
 {id:"f6e",t:"Daredevil: Born Again · T2",u:"tras Thunderbolts*",r:"2026",k:"Serie · 9 ep.",p:"recomendado",n:"Matt y Jessica Jones contra el Fisk alcalde"},
 {id:"f6f",t:"The Punisher: One Last Kill",u:"tras Born Again T2",r:"2026",k:"Especial · 1 h",p:"recomendado",n:"Puente hacia el Frank Castle de Brand New Day"},
-{id:"f6d",t:"Wonder Man",u:"sin fecha clara",r:"2026",k:"Serie · 8 ep.",p:"recomendado",n:"Simon Williams y el Hollywood del UCM"},
 {id:"f6h",t:"Spider-Man: Brand New Day",u:"4 años tras No Way Home",r:"2026",k:"Película",p:"esencial",n:"Lo último estrenado y la antesala inmediata"}]},
 {tag:"Aparte",name:"Los otros universos",aside:true,note:"No caben en la línea temporal principal porque ocurren en realidades distintas. Dos de ellas chocan con la Tierra-616 justo en Doomsday, así que la película no se entiende sin ellas.",items:[
 {id:"f6a",t:"Los 4 Fantásticos: Primeros pasos",u:"Tierra-828, años 60 retrofuturistas",r:"2025",k:"Película",p:"esencial",n:"Uno de los tres universos que convergen en Doomsday"},
@@ -71,8 +66,7 @@ const DATA = [
 {id:"f4e",t:"¿Qué pasaría si...? · T1",u:"realidades alternas",r:"2021",k:"Serie animada · 9 ep.",p:"opcional",n:"Antología del Vigilante"},
 {id:"f5b",t:"¿Qué pasaría si...? · T2",u:"realidades alternas",r:"2023",k:"Serie animada · 9 ep.",p:"opcional",n:"Más universos sueltos"},
 {id:"f5h",t:"¿Qué pasaría si...? · T3",u:"realidades alternas",r:"2024",k:"Serie animada · 8 ep.",p:"opcional",n:"Temporada final"},
-{id:"f6c",t:"Marvel Zombies",u:"realidad alterna",r:"2025",k:"Serie animada · 4 ep.",p:"opcional",n:"Muy gore, totalmente aparte"},
-{id:"f5l",t:"Tu amistoso vecino Spider-Man · T1",u:"universo propio",r:"2025",k:"Serie animada · 10 ep.",p:"opcional",n:"Otro origen de Peter Parker, muy disfrutable"}]},
+{id:"f5h",t:"¿Qué pasaría si...? · T3",u:"realidades alternas",r:"2024",k:"Serie animada · 8 ep.",p:"opcional",n:"Temporada final"}]},
 {tag:"Aparte",name:"La era Fox y Sony",aside:true,note:"Fuera del UCM, pero es el material que No Way Home y Deadpool y Lobezno reciclan. Lo ideal es verlas antes de esas dos.",items:[
 {id:"sy1",t:"Spider-Man",u:"trilogía de Sam Raimi",r:"2002",k:"Película",p:"recomendado",n:"El Duende Verde vuelve en No Way Home"},
 {id:"sy2",t:"Spider-Man 2",u:"trilogía de Sam Raimi",r:"2004",k:"Película",p:"recomendado",n:"Doctor Octopus vuelve en No Way Home"},
@@ -98,16 +92,6 @@ const DATA = [
 {id:"vn1",t:"Venom",u:"universo propio de Sony",r:"2018",k:"Película",p:"opcional",n:"Eddie Brock se fusiona con el simbionte; arranca la trilogía"},
 {id:"vn2",t:"Venom: Let There Be Carnage",u:"universo propio de Sony",r:"2021",k:"Película",p:"opcional",n:"Aparece Carnage; en la escena poscréditos Eddie cruza brevemente a la Tierra-616"},
 {id:"vn3",t:"Venom: The Last Dance",u:"universo propio de Sony",r:"2024",k:"Película",p:"opcional",n:"Eddie vuelve a su universo tras el hechizo de No Way Home y deja un simbionte suelto en la Tierra-616"}]},
-{tag:"Aparte",name:"Netflix: Daredevil y compañía",aside:true,note:"Series de Marvel Television, técnicamente fuera del canon estricto del UCM, pero Born Again recicla a los mismos actores de Fisk y Daredevil.",items:[
-{id:"nf1",t:"Daredevil",u:"Hell's Kitchen",r:"2015-2018",k:"Serie · 3 temp.",p:"opcional",n:"Charlie Cox como Matt Murdock; Vincent D'Onofrio como Kingpin"},
-{id:"nf2",t:"Jessica Jones",u:"Hell's Kitchen",r:"2015-2019",k:"Serie · 3 temp.",p:"opcional",n:"Krysten Ritter; introduce a Kilgrave"},
-{id:"nf3",t:"Luke Cage",u:"Harlem",r:"2016-2018",k:"Serie · 2 temp.",p:"opcional",n:"Mike Colter como Luke Cage"},
-{id:"nf4",t:"Iron Fist",u:"Nueva York",r:"2017-2018",k:"Serie · 2 temp.",p:"opcional",n:"Finn Jones como Danny Rand"},
-{id:"nf5",t:"The Defenders",u:"Nueva York",r:"2017",k:"Serie · 8 ep.",p:"opcional",n:"Cruce de los cuatro héroes de Netflix"},
-{id:"nf6",t:"The Punisher",u:"Nueva York",r:"2017-2019",k:"Serie · 2 temp.",p:"opcional",n:"Jon Bernthal antes de su regreso en Born Again y el especial de 2026"}]},
-{tag:"Falta",name:"Aún no se estrena",note:"Los dos últimos títulos antes de Doomsday.",items:[
-{id:"pxa",t:"VisionQuest",u:"",r:"14 oct 2026",k:"Serie",p:"pendiente",n:"Cierra la trilogía de WandaVision y Agatha All Along"},
-{id:"pxb",t:"Tu amistoso vecino Spider-Man · T2",u:"",r:"otoño 2026",k:"Serie animada",p:"pendiente",n:"Debutan Venom y Gwen Stacy"}]}
 ];
 
 const STORAGE_KEY = "doomsday-timeline-progress";
