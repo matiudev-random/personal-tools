@@ -113,8 +113,8 @@ function connect(url) {
 
 async function fetchRemote() {
   const [bloques, titulos] = await Promise.all([
-    pb.collection("bloques").getFullList({ sort: "orden" }),
-    pb.collection("titulos").getFullList({ sort: "orden" }),
+    pb.collection("marvel_bloques").getFullList({ sort: "orden" }),
+    pb.collection("marvel_titulos").getFullList({ sort: "orden" }),
   ]);
   recordIds = {};
   done = new Set();
