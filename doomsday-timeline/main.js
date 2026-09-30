@@ -1,122 +1,60 @@
 /* ─────────────────────────────────────────
-   DATA — orden cronológico interno del UCM
+   CONFIG — los datos viven en PocketBase
+   (colecciones "bloques" y "titulos"; el avance es titulos.vista)
 ───────────────────────────────────────── */
-const DATA = [
-{tag:"Bloque 1",name:"El pasado remoto",note:"Todo lo ambientado antes de que existieran los Vengadores.",items:[
-{id:"f6b",t:"Eyes of Wakanda",u:"1260 a.C. al siglo XX",r:"2025",k:"Serie animada · 4 ep.",p:"opcional",n:"Los Perros de Guerra wakandianos a través de la historia"},
-{id:"f1e",t:"Capitán América: El primer vengador",u:"1943-1945",r:"2011",k:"Película",p:"esencial",n:"Steve Rogers y el Teseracto; Steve vuelve en Doomsday"},
-{id:"f3i",t:"Capitana Marvel",u:"1995",r:"2019",k:"Película",p:"recomendado",n:"El pasado de Nick Fury y el primer contacto cósmico"}]},
-{tag:"Bloque 2",name:"Nace la era de los héroes",note:"De la cueva de Tony Stark a la batalla de Nueva York.",items:[
-{id:"f1a",t:"Iron Man",u:"2010",r:"2008",k:"Película",p:"recomendado",n:"El arco que RDJ cierra y ahora invierte como Doctor Doom"},
-{id:"f1c",t:"Iron Man 2",u:"2011",r:"2010",k:"Película",p:"opcional",n:"Presenta a Viuda Negra y a Rhodey con armadura"},
-{id:"f1b",t:"El increíble Hulk",u:"2011",r:"2008",k:"Película",p:"opcional",n:"La más aislada; su villano reaparece en Brave New World"},
-{id:"f1d",t:"Thor",u:"2011",r:"2011",k:"Película",p:"recomendado",n:"Thor y Loki, dos piezas grandes del final"},
-{id:"f1f",t:"Los Vengadores",u:"2012",r:"2012",k:"Película",p:"esencial",n:"El equipo se forma; el molde de todo lo que viene"}]},
-{tag:"Bloque 3",name:"El universo se ensancha",note:"Cae S.H.I.E.L.D., llega lo cósmico y aparece el Reino Cuántico.",items:[
-{id:"f2a",t:"Iron Man 3",u:"Navidad de 2012",r:"2013",k:"Película",p:"opcional",n:"Aquí sale Trevor Slattery, el falso Mandarín"},
-{id:"f2b",t:"Thor: El mundo oscuro",u:"2013",r:"2013",k:"Película",p:"opcional",n:"La más prescindible de toda la saga"},
-{id:"f2c",t:"Capitán América: El Soldado de Invierno",u:"2014",r:"2014",k:"Película",p:"recomendado",n:"Bucky, Sam Wilson y el derrumbe de S.H.I.E.L.D."},
-{id:"f2d",t:"Guardianes de la Galaxia",u:"2014",r:"2014",k:"Película",p:"recomendado",n:"Se abre el frente cósmico"},
-{id:"f3c",t:"Guardianes de la Galaxia Vol. 2",u:"2014",r:"2017",k:"Película",p:"opcional",n:"Ocurre pocos meses después de la primera"},
-{id:"f2e",t:"Vengadores: La era de Ultron",u:"2015",r:"2015",k:"Película",p:"recomendado",n:"Nacen Visión y la Bruja Escarlata"},
-{id:"f2f",t:"Ant-Man",u:"2015",r:"2015",k:"Película",p:"recomendado",n:"El Reino Cuántico entra al tablero"}]},
-{tag:"Bloque 4",name:"La ruptura y Thanos",note:"El equipo se parte en dos y llega el chasquido.",items:[
-{id:"f3a",t:"Capitán América: Civil War",u:"2016",r:"2016",k:"Película",p:"esencial",n:"Rompe a los Vengadores; debutan Black Panther y Spider-Man"},
-{id:"f4d",t:"Black Widow",u:"2016",r:"2021",k:"Película",p:"recomendado",n:"Ocurre justo después de Civil War; presenta a Yelena"},
-{id:"f3f",t:"Black Panther",u:"2016",r:"2018",k:"Película",p:"recomendado",n:"Una semana después de Civil War; Wakanda pelea en Doomsday"},
-{id:"f3d",t:"Spider-Man: Homecoming",u:"2016",r:"2017",k:"Película",p:"recomendado",n:"Peter Parker en su vida cotidiana tras Civil War"},
-{id:"f3b",t:"Doctor Strange",u:"2016-2017",r:"2016",k:"Película",p:"esencial",n:"Magia, dimensiones y las primeras reglas del multiverso"},
-{id:"f3e",t:"Thor: Ragnarok",u:"2017",r:"2017",k:"Película",p:"recomendado",n:"Reinventa a Thor y destruye Asgard"},
-{id:"f3h",t:"Ant-Man y la Avispa",u:"2018",r:"2018",k:"Película",p:"opcional",n:"Su escena final ocurre durante el chasquido"},
-{id:"f3g",t:"Vengadores: Infinity War",u:"2018",r:"2018",k:"Película",p:"esencial",n:"Innegociable"},
-{id:"f3j",t:"Vengadores: Endgame",u:"2018 y salto a 2023",r:"2019",k:"Película",p:"esencial",n:"El listón que Doomsday quiere igualar"}]},
-{tag:"Bloque 5",name:"Después del Blip",note:"Aquí Marvel dejó de fechar las cosas con precisión. Este tramo va ordenado por lógica narrativa, no por calendario oficial.",items:[
-{id:"f4c",t:"Loki · Temporada 1",u:"fuera del tiempo",r:"2021",k:"Serie · 6 ep.",p:"esencial",n:"Arranca durante Endgame; la AVT y la ramificación del multiverso"},
-{id:"f4a",t:"WandaVision",u:"3 semanas tras Endgame",r:"2021",k:"Serie · 9 ep.",p:"esencial",n:"Wanda se convierte en la Bruja Escarlata"},
-{id:"f4b",t:"Falcon y el Soldado de Invierno",u:"6 meses tras Endgame",r:"2021",k:"Serie · 6 ep.",p:"esencial",n:"Sam hereda el escudo; aparece John Walker"},
-{id:"f4f",t:"Shang-Chi y la leyenda de los Diez Anillos",u:"post-Blip",r:"2021",k:"Película",p:"recomendado",n:"Los Diez Anillos siguen siendo un hilo suelto"},
-{id:"f3k",t:"Spider-Man: Lejos de casa",u:"8 meses tras Endgame",r:"2019",k:"Película",p:"recomendado",n:"Mysterio revela la identidad de Peter"},
-{id:"f4i",t:"Spider-Man: No Way Home",u:"justo después",r:"2021",k:"Película",p:"esencial",n:"El hechizo que rompe las realidades y borra a Peter del mundo"},
-{id:"f4h",t:"Hawkeye",u:"Navidad siguiente",r:"2021",k:"Serie · 6 ep.",p:"recomendado",n:"Kate Bishop, Yelena y el regreso de Kingpin"},
-{id:"f4j",t:"Moon Knight",u:"sin fecha clara",r:"2022",k:"Serie · 6 ep.",p:"opcional",n:"Autoconclusiva por ahora"},
-{id:"f4k",t:"Doctor Strange en el multiverso de la locura",u:"tras No Way Home",r:"2022",k:"Película",p:"esencial",n:"Incursiones, variantes y la primera visita a otra Tierra"},
-{id:"f4l",t:"Ms. Marvel",u:"tras No Way Home",r:"2022",k:"Serie · 6 ep.",p:"recomendado",n:"Kamala Khan y el primer guiño mutante del UCM"},
-{id:"f4m",t:"Thor: Love and Thunder",u:"tras Endgame",r:"2022",k:"Película",p:"opcional",n:"Poco impacto en la trama mayor"},
-{id:"f4p",t:"Black Panther: Wakanda Forever",u:"tras Ms. Marvel",r:"2022",k:"Película",p:"esencial",n:"Shuri, Namor y los wakandianos que van a Doomsday"},
-{id:"f4q",t:"Especial de Navidad de los Guardianes",u:"Navidad siguiente",r:"2022",k:"Especial · 45 min",p:"opcional",n:"Puro cariño, cero trama"},
-{id:"f5g",t:"Echo",u:"5 meses tras Hawkeye",r:"2024",k:"Serie · 5 ep.",p:"opcional",n:"Spin-off callejero; deja a Fisk listo para Born Again"},
-{id:"f5p",t:"Ironheart",u:"tras Wakanda Forever",r:"2025",k:"Serie · 6 ep.",p:"recomendado",n:"Riri Williams cruza tecnología y magia"},
-{id:"f5m",t:"Daredevil: Born Again · T1",u:"tras Echo",r:"2025",k:"Serie · 9 ep.",p:"recomendado",n:"Fisk llega a alcalde y declara la ley marcial"}]},
-{tag:"Bloque 6",name:"El tablero antes de Doom",note:"El presente del UCM. Doomsday arranca catorce meses después de Thunderbolts*.",items:[
-{id:"f5a",t:"Ant-Man y la Avispa: Quantumania",u:"post-Blip",r:"2023",k:"Película",p:"recomendado",n:"El Reino Cuántico y el villano que Marvel acabó reemplazando"},
-{id:"f5c",t:"Guardianes de la Galaxia Vol. 3",u:"post-Blip",r:"2023",k:"Película",p:"opcional",n:"Cierre emotivo del grupo"},
-{id:"f5d",t:"Invasión secreta",u:"post-Blip",r:"2023",k:"Serie · 6 ep.",p:"recomendado",n:"Cambia la situación de Rhodey y del gobierno"},
-{id:"f5e",t:"Loki · Temporada 2",u:"fuera del tiempo",r:"2023",k:"Serie · 6 ep.",p:"esencial",n:"Loki termina sosteniendo el multiverso entero"},
-{id:"f5k",t:"Agatha All Along",u:"3 años tras WandaVision",r:"2024",k:"Serie · 9 ep.",p:"recomendado",n:"Billy Maximoff; enlaza directo con VisionQuest"},
-{id:"f5j",t:"Deadpool y Lobezno",u:"tras Loki T2",r:"2024",k:"Película",p:"esencial",n:"Ancla el multiverso de Fox al UCM"},
-{id:"f5n",t:"Capitán América: Brave New World",u:"tras Wakanda Forever",r:"2025",k:"Película",p:"esencial",n:"Sam ya como Capitán América y el nuevo mapa político"},
-{id:"f5o",t:"Thunderbolts*",u:"tras Brave New World",r:"2025",k:"Película",p:"esencial",n:"El punto de partida directo de Doomsday"},
-{id:"f6e",t:"Daredevil: Born Again · T2",u:"tras Thunderbolts*",r:"2026",k:"Serie · 9 ep.",p:"recomendado",n:"Matt y Jessica Jones contra el Fisk alcalde"},
-{id:"f6f",t:"The Punisher: One Last Kill",u:"tras Born Again T2",r:"2026",k:"Especial · 1 h",p:"recomendado",n:"Puente hacia el Frank Castle de Brand New Day"},
-{id:"f6h",t:"Spider-Man: Brand New Day",u:"4 años tras No Way Home",r:"2026",k:"Película",p:"esencial",n:"Lo último estrenado y la antesala inmediata"}]},
-{tag:"Aparte",name:"Los otros universos",aside:true,note:"No caben en la línea temporal principal porque ocurren en realidades distintas. Dos de ellas chocan con la Tierra-616 justo en Doomsday, así que la película no se entiende sin ellas.",items:[
-{id:"f6a",t:"Los 4 Fantásticos: Primeros pasos",u:"Tierra-828, años 60 retrofuturistas",r:"2025",k:"Película",p:"esencial",n:"Uno de los tres universos que convergen en Doomsday"},
-{id:"f5i",t:"X-Men '97 · Temporada 1",u:"universo mutante propio",r:"2024",k:"Serie animada · 10 ep.",p:"recomendado",n:"Los X-Men que aparecen en Doomsday vienen de aquí"},
-{id:"f6g",t:"X-Men '97 · Temporada 2",u:"universo mutante propio",r:"2026",k:"Serie animada · 9 ep.",p:"recomendado",n:"Apocalipsis y el origen de En Sabah Nur"},
-{id:"f4e",t:"¿Qué pasaría si...? · T1",u:"realidades alternas",r:"2021",k:"Serie animada · 9 ep.",p:"opcional",n:"Antología del Vigilante"},
-{id:"f5b",t:"¿Qué pasaría si...? · T2",u:"realidades alternas",r:"2023",k:"Serie animada · 9 ep.",p:"opcional",n:"Más universos sueltos"},
-{id:"f5h",t:"¿Qué pasaría si...? · T3",u:"realidades alternas",r:"2024",k:"Serie animada · 8 ep.",p:"opcional",n:"Temporada final"},
-{id:"f5h",t:"¿Qué pasaría si...? · T3",u:"realidades alternas",r:"2024",k:"Serie animada · 8 ep.",p:"opcional",n:"Temporada final"}]},
-{tag:"Aparte",name:"La era Fox y Sony",aside:true,note:"Fuera del UCM, pero es el material que No Way Home y Deadpool y Lobezno reciclan. Lo ideal es verlas antes de esas dos.",items:[
-{id:"sy1",t:"Spider-Man",u:"trilogía de Sam Raimi",r:"2002",k:"Película",p:"recomendado",n:"El Duende Verde vuelve en No Way Home"},
-{id:"sy2",t:"Spider-Man 2",u:"trilogía de Sam Raimi",r:"2004",k:"Película",p:"recomendado",n:"Doctor Octopus vuelve en No Way Home"},
-{id:"sy3",t:"Spider-Man 3",u:"trilogía de Sam Raimi",r:"2007",k:"Película",p:"opcional",n:"Solo por Sandman"},
-{id:"sy4",t:"The Amazing Spider-Man",u:"saga de Marc Webb",r:"2012",k:"Película",p:"recomendado",n:"El Peter de Andrew Garfield y el Lagarto"},
-{id:"sy5",t:"The Amazing Spider-Man 2: El poder de Electro",u:"saga de Marc Webb",r:"2014",k:"Película",p:"recomendado",n:"Gwen Stacy y Electro; su peso emocional se cobra en No Way Home"},
-{id:"fx1",t:"X-Men",u:"saga Fox",r:"2000",k:"Película",p:"recomendado",n:"El origen de todo el cine mutante"},
-{id:"fx2",t:"X2: X-Men unidos",u:"saga Fox",r:"2003",k:"Película",p:"recomendado",n:"La mejor de la trilogía original"},
-{id:"fx3",t:"X-Men: La decisión final",u:"saga Fox",r:"2006",k:"Película",p:"opcional",n:"Floja, pero cierra la trilogía"},
-{id:"fx4",t:"X-Men Orígenes: Lobezno",u:"saga Fox",r:"2009",k:"Película",p:"opcional",n:"Su Deadpool es el chiste recurrente de la saga"},
-{id:"fx5",t:"X-Men: Primera generación",u:"saga Fox · años 60",r:"2011",k:"Película",p:"recomendado",n:"Reinicia la saga con Xavier y Magneto jóvenes"},
-{id:"fx6",t:"Lobezno inmortal",u:"saga Fox",r:"2013",k:"Película",p:"opcional",n:"Logan en Japón"},
-{id:"fx7",t:"X-Men: Días del futuro pasado",u:"saga Fox",r:"2014",k:"Película",p:"recomendado",n:"Viajes en el tiempo; la más multiversal de Fox"},
-{id:"fx8",t:"Deadpool",u:"saga Fox",r:"2016",k:"Película",p:"recomendado",n:"Imprescindible antes de Deadpool y Lobezno"},
-{id:"fx9",t:"X-Men: Apocalipsis",u:"saga Fox",r:"2016",k:"Película",p:"opcional",n:"Presenta a Apocalipsis en imagen real"},
-{id:"fxa",t:"Logan",u:"saga Fox · futuro",r:"2017",k:"Película",p:"recomendado",n:"El adiós de Hugh Jackman que Deadpool y Lobezno respeta"},
-{id:"fxb",t:"Deadpool 2",u:"saga Fox",r:"2018",k:"Película",p:"recomendado",n:"Cable, Domino y el reloj temporal"},
-{id:"fxc",t:"X-Men: Fénix Oscura",u:"saga Fox",r:"2019",k:"Película",p:"opcional",n:"El final flojo de la era Fox"},
-{id:"fxd",t:"Los 4 Fantásticos (Fox)",u:"saga Fox",r:"2005",k:"Película",p:"opcional",n:"Pura curiosidad histórica"},
-{id:"fxe",t:"Los 4 Fantásticos y Silver Surfer",u:"saga Fox",r:"2007",k:"Película",p:"opcional",n:"Pura curiosidad histórica"},
-{id:"fxf",t:"Cuatro Fantásticos (Fox)",u:"saga Fox",r:"2015",k:"Película",p:"opcional",n:"Salvo que quieras sufrir, sáltatela"}]},
-{tag:"Aparte",name:"El Venomverse de Sony",aside:true,note:"Universo separado del UCM. No hace falta para entender Doomsday, pero un simbionte quedó suelto en la Tierra-616 tras el hechizo de No Way Home — posible semilla para el futuro de Spider-Man.",items:[
-{id:"vn1",t:"Venom",u:"universo propio de Sony",r:"2018",k:"Película",p:"opcional",n:"Eddie Brock se fusiona con el simbionte; arranca la trilogía"},
-{id:"vn2",t:"Venom: Let There Be Carnage",u:"universo propio de Sony",r:"2021",k:"Película",p:"opcional",n:"Aparece Carnage; en la escena poscréditos Eddie cruza brevemente a la Tierra-616"},
-{id:"vn3",t:"Venom: The Last Dance",u:"universo propio de Sony",r:"2024",k:"Película",p:"opcional",n:"Eddie vuelve a su universo tras el hechizo de No Way Home y deja un simbionte suelto en la Tierra-616"}]},
-];
+const PB_URL = "https://remindful-tanned-concierge.ngrok-free.dev";
+const CACHE_KEY = "doomsday-cache";          // última lista + avance descargados
+const PENDING_KEY = "doomsday-pending";      // cambios aún sin subir {codigo: bool}
+const OLD_KEY = "doomsday-timeline-progress"; // avance de la versión solo-localStorage
 
-const STORAGE_KEY = "doomsday-timeline-progress";
 const list = document.getElementById("list");
 const statusEl = document.getElementById("status");
+const syncForm = document.getElementById("sync-form");
+const syncUser = document.getElementById("sync-user");
+
+let DATA = [];
 let done = new Set();
+let recordIds = {};
+let pending = {};
 let filter = "todo";
+let pb = null;
+let online = false;
+let flushing = false;
+let loadFailed = false;
+
+function readJSON(key, fallback) {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? JSON.parse(raw) : fallback;
+  } catch (e) {
+    return fallback;
+  }
+}
+
+function writeJSON(key, val) {
+  try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {}
+}
+
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 
 /* ─────────────────────────────────────────
    RENDER DE BLOQUES
 ───────────────────────────────────────── */
-DATA.forEach((block, i) => {
-  const sec = document.createElement("section");
-  sec.className = "plate" + (block.aside ? " aside" : "");
-  sec.dataset.block = i;
-  sec.innerHTML = `<span class="rv"></span><span class="rv2"></span>
-  <div class="plate-head"><span class="plate-num">${block.tag}</span><h2 class="plate-name">${block.name}</h2><span class="plate-tally" data-tally="${i}"></span></div>
-  ${block.note ? `<p class="plate-note">${block.note}</p>` : ""}
-  <ul>${block.items.map(it => `<li class="row" data-id="${it.id}"><input type="checkbox" id="${it.id}" aria-label="${it.t}"><label class="info" for="${it.id}"><span class="title">${it.t}</span><span class="metaline">${it.u ? `<em>${it.u}</em> · ` : ""}${it.k} · estreno ${it.r} — ${it.n}</span></label><span class="tag t-${it.p}">${it.p}</span></li>`).join("")}</ul>`;
-  list.appendChild(sec);
-});
+function render() {
+  if (!DATA.length) {
+    list.innerHTML = `<p class="empty">${loadFailed ? "No se pudo cargar la lista. Revisa que PocketBase y ngrok estén corriendo en el teléfono." : "Cargando lista…"}</p>`;
+    document.getElementById("total").textContent = 0;
+    return;
+  }
+  list.innerHTML = DATA.map((block, i) => `<section class="plate${block.aside ? " aside" : ""}" data-block="${i}"><span class="rv"></span><span class="rv2"></span>
+  <div class="plate-head"><span class="plate-num">${esc(block.tag)}</span><h2 class="plate-name">${esc(block.name)}</h2><span class="plate-tally" data-tally="${i}"></span></div>
+  ${block.note ? `<p class="plate-note">${esc(block.note)}</p>` : ""}
+  <ul>${block.items.map(it => `<li class="row" data-id="${esc(it.id)}"><input type="checkbox" id="${esc(it.id)}" aria-label="${esc(it.t)}"><label class="info" for="${esc(it.id)}"><span class="title">${esc(it.t)}</span><span class="metaline">${it.u ? `<em>${esc(it.u)}</em> · ` : ""}${esc(it.k)} · estreno ${esc(it.r)} — ${esc(it.n)}</span></label><span class="tag t-${esc(it.p)}">${esc(it.p)}</span></li>`).join("")}</ul></section>`).join("");
+  document.getElementById("total").textContent = countable();
+}
 
-const allItems = DATA.flatMap(b => b.items);
-const countable = allItems.filter(i => i.p !== "pendiente").length;
-document.getElementById("total").textContent = countable;
+const allItems = () => DATA.flatMap(b => b.items);
+const countable = () => allItems().filter(i => i.p !== "pendiente").length;
 
 /* ─────────────────────────────────────────
    PINTADO DE ESTADO / FILTROS
@@ -142,37 +80,114 @@ function paint() {
     const anyVisible = block.items.some(it => !list.querySelector(`[data-id="${it.id}"]`).classList.contains("hidden"));
     list.querySelector(`[data-block="${i}"]`).style.display = anyVisible ? "" : "none";
   });
+  const total = countable();
   document.getElementById("seen").textContent = seen;
-  document.getElementById("fill").style.width = (seen / countable * 100) + "%";
+  document.getElementById("fill").style.width = (total ? seen / total * 100 : 0) + "%";
+}
+
+function updateStatus(msg) {
+  const n = Object.keys(pending).length;
+  const logged = pb && pb.authStore.isValid;
+  syncForm.hidden = !!logged;
+  syncUser.hidden = !logged;
+  if (logged) syncUser.querySelector("span").textContent = pb.authStore.record?.email || "";
+  if (msg) statusEl.textContent = msg;
+  else if (!pb) statusEl.textContent = "Sin servidor configurado";
+  else if (!online) statusEl.textContent = n ? `Sin conexión · ${n} cambios en espera` : "Sin conexión · copia local";
+  else if (!logged) statusEl.textContent = n ? `Inicia sesión para subir ${n} cambios` : "Inicia sesión para guardar";
+  else statusEl.textContent = n ? `Subiendo ${n} cambios…` : "Sincronizado";
 }
 
 /* ─────────────────────────────────────────
-   PERSISTENCIA (localStorage)
+   POCKETBASE
 ───────────────────────────────────────── */
-function save() {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify([...done]));
-    statusEl.textContent = "Guardado";
-  } catch (e) {
-    statusEl.textContent = "No se pudo guardar";
-  }
+function connect(url) {
+  pb = new PocketBase(url);
+  pb.autoCancellation(false);
+  // ngrok muestra una página de aviso en vez de la respuesta si no va este header
+  pb.beforeSend = (u, options) => {
+    options.headers = Object.assign({}, options.headers, { "ngrok-skip-browser-warning": "1" });
+    return { url: u, options };
+  };
 }
 
-function load() {
+async function fetchRemote() {
+  const [bloques, titulos] = await Promise.all([
+    pb.collection("bloques").getFullList({ sort: "orden" }),
+    pb.collection("titulos").getFullList({ sort: "orden" }),
+  ]);
+  recordIds = {};
+  done = new Set();
+  DATA = bloques.map(b => ({
+    tag: b.tag, name: b.nombre, note: b.nota, aside: b.aparte,
+    items: titulos.filter(t => t.bloque === b.id).map(t => {
+      recordIds[t.codigo] = t.id;
+      if (t.vista) done.add(t.codigo);
+      return { id: t.codigo, t: t.titulo, u: t.ubicacion, r: t.estreno, k: t.tipo, p: t.prioridad, n: t.nota };
+    }),
+  }));
+  // lo que todavía no se subió manda sobre lo que dice el servidor
+  for (const [codigo, on] of Object.entries(pending)) on ? done.add(codigo) : done.delete(codigo);
+}
+
+async function flush() {
+  if (flushing || !online || !pb.authStore.isValid) return;
+  flushing = true;
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) done = new Set(JSON.parse(raw));
-    statusEl.textContent = done.size ? "Avance recuperado" : "Empezando de cero";
+    for (const [codigo, on] of Object.entries(pending)) {
+      if (!recordIds[codigo]) { delete pending[codigo]; continue; } // título que ya no existe
+      await pb.collection("titulos").update(recordIds[codigo], { vista: on });
+      if (pending[codigo] === on) delete pending[codigo]; // pudo cambiar mientras se subía
+      writeJSON(PENDING_KEY, pending);
+    }
   } catch (e) {
-    statusEl.textContent = "Empezando de cero";
+    if (e.status === 401 || e.status === 403 || e.status === 404) updateStatus("Sin permiso para guardar — revisa la updateRule");
+    else { online = false; updateStatus(); }
+    return;
+  } finally {
+    flushing = false;
   }
-  paint();
+  if (Object.keys(pending).length) return flush();
+  updateStatus();
+}
+
+async function sync() {
+  if (!pb) { updateStatus(); return; }
+  try {
+    if (pb.authStore.isValid) await pb.collection("users").authRefresh().catch(e => { if (e.status === 401) pb.authStore.clear(); });
+    await fetchRemote();
+    online = true;
+  } catch (e) {
+    online = false;
+    loadFailed = true;
+    if (!DATA.length) render();
+    updateStatus();
+    return;
+  }
+  writeJSON(CACHE_KEY, { data: DATA, done: [...done] });
+  render(); paint(); updateStatus();
+  await flush();
+}
+
+/* ─────────────────────────────────────────
+   EVENTOS
+───────────────────────────────────────── */
+function setDone(codigo, on) {
+  on ? done.add(codigo) : done.delete(codigo);
+  pending[codigo] = on;
+}
+
+function commit() {
+  writeJSON(PENDING_KEY, pending);
+  writeJSON(CACHE_KEY, { data: DATA, done: [...done] });
+  paint(); updateStatus();
+  if (pb) flush();
 }
 
 list.addEventListener("change", e => {
   if (e.target.type !== "checkbox") return;
-  e.target.checked ? done.add(e.target.id) : done.delete(e.target.id);
-  paint(); save();
+  setDone(e.target.id, e.target.checked);
+  commit();
 });
 
 document.querySelectorAll(".chip").forEach(btn => {
@@ -184,9 +199,32 @@ document.querySelectorAll(".chip").forEach(btn => {
 });
 
 document.getElementById("reset").addEventListener("click", () => {
-  done.clear(); paint(); save();
-  statusEl.textContent = "Avance borrado";
+  [...done].forEach(codigo => setDone(codigo, false));
+  commit();
 });
+
+syncForm.addEventListener("submit", async e => {
+  e.preventDefault();
+  const f = new FormData(syncForm);
+  updateStatus("Conectando…");
+  try {
+    await pb.collection("users").authWithPassword(f.get("email"), f.get("password"));
+    syncForm.reset();
+  } catch (err) {
+    updateStatus(err.status === 400 ? "Correo o contraseña incorrectos" : "No se pudo conectar al servidor");
+    return;
+  }
+  sync();
+});
+
+document.getElementById("logout").addEventListener("click", () => {
+  pb.authStore.clear();
+  updateStatus();
+});
+
+// al volver a la pestaña trae lo que marcaste en otro dispositivo
+document.addEventListener("visibilitychange", () => { if (!document.hidden) sync(); });
+window.addEventListener("online", sync);
 
 /* ─────────────────────────────────────────
    CUENTA REGRESIVA
@@ -204,4 +242,23 @@ function tick() {
 tick();
 setInterval(tick, 30000);
 
-load();
+/* ─────────────────────────────────────────
+   ARRANQUE — primero la copia local, luego el servidor
+───────────────────────────────────────── */
+pending = readJSON(PENDING_KEY, {});
+readJSON(OLD_KEY, []).forEach(codigo => { pending[codigo] = true; });
+try { localStorage.removeItem(OLD_KEY); } catch (e) {}
+writeJSON(PENDING_KEY, pending);
+
+const cache = readJSON(CACHE_KEY, null);
+if (cache) {
+  DATA = cache.data;
+  done = new Set(cache.done);
+  for (const [codigo, on] of Object.entries(pending)) on ? done.add(codigo) : done.delete(codigo);
+}
+render();
+if (DATA.length) paint();
+
+connect(PB_URL);
+updateStatus();
+sync();

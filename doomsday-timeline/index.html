@@ -68,9 +68,19 @@
     <div class="footer-actions">
       <button class="reset" id="reset">Borrar mi avance</button>
       <span class="footer-status" id="status"></span>
+      <form class="sync-form" id="sync-form" hidden>
+        <input name="email" type="email" placeholder="Correo" autocomplete="username" required />
+        <input name="password" type="password" placeholder="Contraseña" autocomplete="current-password" required />
+        <button class="reset" type="submit">Iniciar sesión</button>
+      </form>
+      <div class="sync-user" id="sync-user" hidden>
+        <span></span>
+        <button class="reset" type="button" id="logout">Salir</button>
+      </div>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/pocketbase@0.28.1/dist/pocketbase.umd.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
