@@ -1,5 +1,6 @@
 [
   {
+    "id": "pbc_fuerza_tms",
     "name": "fuerza_tms",
     "type": "base",
     "listRule": "@request.auth.id != \"\"",
@@ -8,15 +9,47 @@
     "updateRule": "@request.auth.id != \"\"",
     "deleteRule": "@request.auth.id != \"\"",
     "fields": [
-      { "name": "ejercicio", "type": "text", "required": true },
-      { "name": "tm", "type": "number", "required": true },
-      { "name": "desde", "type": "date", "required": true },
-      { "name": "nota", "type": "text" },
-      { "name": "created", "type": "autodate", "onCreate": true, "onUpdate": false },
-      { "name": "updated", "type": "autodate", "onCreate": true, "onUpdate": true }
+      {
+        "id": "text_tms_ejercicio",
+        "name": "ejercicio",
+        "type": "text",
+        "required": true
+      },
+      {
+        "id": "number_tms_tm",
+        "name": "tm",
+        "type": "number",
+        "required": true
+      },
+      {
+        "id": "date_tms_desde",
+        "name": "desde",
+        "type": "date",
+        "required": true
+      },
+      {
+        "id": "text_tms_nota",
+        "name": "nota",
+        "type": "text"
+      },
+      {
+        "id": "autodate_tms_created",
+        "name": "created",
+        "type": "autodate",
+        "onCreate": true,
+        "onUpdate": false
+      },
+      {
+        "id": "autodate_tms_updated",
+        "name": "updated",
+        "type": "autodate",
+        "onCreate": true,
+        "onUpdate": true
+      }
     ]
   },
   {
+    "id": "pbc_fuerza_ses",
     "name": "fuerza_sesiones",
     "type": "base",
     "listRule": "@request.auth.id != \"\"",
@@ -25,15 +58,60 @@
     "updateRule": "@request.auth.id != \"\"",
     "deleteRule": "@request.auth.id != \"\"",
     "fields": [
-      { "name": "fecha", "type": "date", "required": true },
-      { "name": "dia", "type": "number", "required": true },
-      { "name": "ciclo", "type": "number", "required": true },
-      { "name": "semana", "type": "number", "required": true },
-      { "name": "tm", "type": "number" },
-      { "name": "notas", "type": "text" },
-      { "name": "series", "type": "json", "maxSize": 0 },
-      { "name": "created", "type": "autodate", "onCreate": true, "onUpdate": false },
-      { "name": "updated", "type": "autodate", "onCreate": true, "onUpdate": true }
+      {
+        "id": "date_ses_fecha",
+        "name": "fecha",
+        "type": "date",
+        "required": true
+      },
+      {
+        "id": "number_ses_dia",
+        "name": "dia",
+        "type": "number",
+        "required": true
+      },
+      {
+        "id": "number_ses_ciclo",
+        "name": "ciclo",
+        "type": "number",
+        "required": true
+      },
+      {
+        "id": "number_ses_semana",
+        "name": "semana",
+        "type": "number",
+        "required": true
+      },
+      {
+        "id": "number_ses_tm",
+        "name": "tm",
+        "type": "number"
+      },
+      {
+        "id": "text_ses_notas",
+        "name": "notas",
+        "type": "text"
+      },
+      {
+        "id": "json_ses_series",
+        "name": "series",
+        "type": "json",
+        "maxSize": 0
+      },
+      {
+        "id": "autodate_ses_created",
+        "name": "created",
+        "type": "autodate",
+        "onCreate": true,
+        "onUpdate": false
+      },
+      {
+        "id": "autodate_ses_updated",
+        "name": "updated",
+        "type": "autodate",
+        "onCreate": true,
+        "onUpdate": true
+      }
     ]
   }
 ]
