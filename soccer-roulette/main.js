@@ -9,7 +9,6 @@ const DEFAULT_PLAYERS = [
   { name: "Dixon", pos: "MED", skill: 8, selected: true },
   { name: "Matias", pos: "DEL", skill: 8, selected: true },
   { name: "Shagy", pos: "DEL", skill: 7, selected: true },
-  { name: "Alejandro", pos: "DEL", skill: 9, selected: true },
   { name: "Sexpeda", pos: "DEL", skill: 9, selected: true },
   { name: "Pato", pos: "DEL", skill: 6, selected: true },
 ];
