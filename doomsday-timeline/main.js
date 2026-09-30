@@ -1,6 +1,6 @@
 /* ─────────────────────────────────────────
    CONFIG — los datos viven en PocketBase
-   (colecciones "bloques" y "titulos"; el avance es titulos.vista)
+   (colecciones "marvel_bloques" y "marvel_titulos"; el avance es marvel_titulos.vista)
 ───────────────────────────────────────── */
 const PB_URL = "https://remindful-tanned-concierge.ngrok-free.dev";
 const CACHE_KEY = "doomsday-cache";          // última lista + avance descargados
@@ -136,12 +136,13 @@ async function flush() {
   try {
     for (const [codigo, on] of Object.entries(pending)) {
       if (!recordIds[codigo]) { delete pending[codigo]; continue; } // título que ya no existe
-      await pb.collection("titulos").update(recordIds[codigo], { vista: on });
+      await pb.collection("marvel_titulos").update(recordIds[codigo], { vista: on });
       if (pending[codigo] === on) delete pending[codigo]; // pudo cambiar mientras se subía
       writeJSON(PENDING_KEY, pending);
     }
   } catch (e) {
-    if (e.status === 401 || e.status === 403 || e.status === 404) updateStatus("Sin permiso para guardar — revisa la updateRule");
+    if (e.status === 401 || e.status === 403) updateStatus("Sin permiso para guardar — revisa la updateRule");
+    else if (e.status === 404) updateStatus("No se encontró la colección o el título en PocketBase");
     else { online = false; updateStatus(); }
     return;
   } finally {
