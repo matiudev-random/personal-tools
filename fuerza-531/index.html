@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#14120F" />
+  <title>Fuerza 5/3/1 — Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="../index.html" class="back-btn">← Dashboard</a>
+    <div class="header-center">
+      <div class="header-sub">Upper / Lower · 5/3/1</div>
+      <h1>Fuerza</h1>
+    </div>
+    <span class="status-dot" id="status-dot" title="Estado de sincronización"></span>
+  </header>
+
+  <nav class="views" role="tablist">
+    <button class="view-btn" data-view="train" role="tab">Entrenar</button>
+    <button class="view-btn" data-view="progress" role="tab">Progreso</button>
+    <button class="view-btn" data-view="tms" role="tab">TMs</button>
+  </nav>
+
+  <main>
+
+    <!-- ─── ENTRENAR ─────────────────────────── -->
+    <section class="view" id="view-train">
+      <div class="day-tabs" id="day-tabs"></div>
+      <div class="session-meta" id="session-meta"></div>
+      <div id="train-content"></div>
+
+      <div class="card">
+        <h3>Notas de la sesión</h3>
+        <textarea id="notas" rows="2" placeholder="Molestias, sensaciones, cambios de ejercicio…"></textarea>
+      </div>
+
+      <button class="primary-btn" id="save">Guardar sesión</button>
+      <p class="hint" id="save-hint"></p>
+    </section>
+
+    <!-- ─── PROGRESO ─────────────────────────── -->
+    <section class="view" id="view-progress" hidden>
+      <div id="charts"></div>
+      <h2 class="section-title">Historial</h2>
+      <div id="history"></div>
+    </section>
+
+    <!-- ─── TMs ──────────────────────────────── -->
+    <section class="view" id="view-tms" hidden>
+      <div id="tm-cards"></div>
+      <div id="import-box"></div>
+
+      <div class="card account">
+        <h3>Servidor</h3>
+        <p class="status-line" id="status"></p>
+        <form class="login-form" id="login-form" hidden>
+          <input name="email" type="email" placeholder="Correo" autocomplete="username" required />
+          <input name="password" type="password" placeholder="Contraseña" autocomplete="current-password" required />
+          <button class="ghost-btn" type="submit">Iniciar sesión</button>
+        </form>
+        <div class="login-user" id="login-user" hidden>
+          <span></span>
+          <button class="ghost-btn" type="button" id="logout">Salir</button>
+        </div>
+      </div>
+
+      <details class="card glossary">
+        <summary>Glosario</summary>
+        <dl>
+          <dt>TM</dt><dd>Training max: el peso base sobre el que se calculan los porcentajes (~90% de tu 1RM).</dd>
+          <dt>AMRAP</dt><dd>La serie del "+": todas las reps que puedas con buena técnica.</dd>
+          <dt>RPE</dt><dd>Esfuerzo percibido de 1 a 10 (10 = fallo total).</dd>
+          <dt>1RM est.</dt><dd>Máximo estimado para 1 rep, calculado con peso × (1 + reps / 30).</dd>
+          <dt>Deload</dt><dd>Semana 4: descarga con cargas livianas.</dd>
+        </dl>
+      </details>
+    </section>
+
+  </main>
+
+  <!-- Resumen al guardar -->
+  <dialog id="summary-dialog">
+    <div class="dialog-inner">
+      <h2 id="summary-title">Sesión guardada</h2>
+      <div id="summary-prs"></div>
+      <pre id="summary-text"></pre>
+      <div class="dialog-actions">
+        <button class="primary-btn" id="copy-summary">Copiar para Claude</button>
+        <button class="ghost-btn" id="close-summary">Cerrar</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/pocketbase@0.28.1/dist/pocketbase.umd.js"></script>
+  <script src="plan.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

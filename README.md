@@ -24,6 +24,9 @@ Hecha cuando tuve tendinopatía rotuliana para no perderme entre tantos ejercici
 ### 🛡️ Camino a Doomsday (`/doomsday-timeline`)
 Orden cronológico interno de todo el UCM (pelis, series y especiales, más los universos aparte de Fox/Sony y las animaciones) para llegar a *Avengers: Doomsday* sin perderte nada. Tiene checklist con avance guardado en el navegador, filtros por prioridad (esencial / recomendado / opcional) y una cuenta regresiva en vivo al estreno.
 
+
+### 🏋️ Fuerza 5/3/1 (`/fuerza-531`)
+Tracker de mi plan Upper/Lower a 4 días con 5/3/1. Muestra los pesos del día (con calentamiento y discos por lado para la barra de 10 kg), y ahí mismo anoto reps, peso real y RPE de la serie AMRAP, más los accesorios. Calcula el 1RM estimado, avisa de récords, grafica el progreso y al cerrar cada ciclo sugiere si subir, mantener o bajar el TM. Cada sesión genera un resumen para pegárselo a Claude, que hace de coach. Datos en PocketBase (`fuerza_tms` y `fuerza_sesiones`, esquema en `fuerza-531/pb_schema.json`); funciona sin conexión y sube lo pendiente después.
 ---
 
 ## 🗂️ Estructura
@@ -39,7 +42,8 @@ personal-tools/
 │   └── styles.css
 ├── soccer-roulette/
 ├── knee-rehab/
-└── doomsday-timeline/
+├── doomsday-timeline/
+└── fuerza-531/          ← + plan.js (ejercicios) y pb_schema.json
 ```
 
 ### `shared.css`

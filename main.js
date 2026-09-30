@@ -30,6 +30,15 @@ const TOOLS = [
     status: "active",
   },
 
+  {
+    title:  "Fuerza 5/3/1",
+    desc:   "Tracker del plan Upper/Lower: pesos del día, anotas reps y RPE, progreso del 1RM y revisión de TMs.",
+    icon:   "🏋️",
+    tag:    "Deporte",
+    href:   "fuerza-531/index.html",
+    status: "active",
+  },
+
   // ── AÑADE TUS OTRAS APPS AQUÍ ──────────────────────────────────────────
   // {
   //   title:  "Nombre de la app",
@@ -47,6 +56,7 @@ const QUICK_LINKS = [
   { label: "Rodilla",     icon: "🦵", href: "knee-rehab/index.html" },
   { label: "Ruleta",     icon: "⚽", href: "soccer-roulette/index.html" },
   { label: "Doomsday",    icon: "🛡️", href: "doomsday-timeline/index.html" },
+  { label: "Fuerza",      icon: "🏋️", href: "fuerza-531/index.html" },
   { label: "Inicio",      icon: "⌂",  href: "#" },
 ];
 

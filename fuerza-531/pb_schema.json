@@ -1,0 +1,39 @@
+[
+  {
+    "name": "fuerza_tms",
+    "type": "base",
+    "listRule": "@request.auth.id != \"\"",
+    "viewRule": "@request.auth.id != \"\"",
+    "createRule": "@request.auth.id != \"\"",
+    "updateRule": "@request.auth.id != \"\"",
+    "deleteRule": "@request.auth.id != \"\"",
+    "fields": [
+      { "name": "ejercicio", "type": "text", "required": true },
+      { "name": "tm", "type": "number", "required": true },
+      { "name": "desde", "type": "date", "required": true },
+      { "name": "nota", "type": "text" },
+      { "name": "created", "type": "autodate", "onCreate": true, "onUpdate": false },
+      { "name": "updated", "type": "autodate", "onCreate": true, "onUpdate": true }
+    ]
+  },
+  {
+    "name": "fuerza_sesiones",
+    "type": "base",
+    "listRule": "@request.auth.id != \"\"",
+    "viewRule": "@request.auth.id != \"\"",
+    "createRule": "@request.auth.id != \"\"",
+    "updateRule": "@request.auth.id != \"\"",
+    "deleteRule": "@request.auth.id != \"\"",
+    "fields": [
+      { "name": "fecha", "type": "date", "required": true },
+      { "name": "dia", "type": "number", "required": true },
+      { "name": "ciclo", "type": "number", "required": true },
+      { "name": "semana", "type": "number", "required": true },
+      { "name": "tm", "type": "number" },
+      { "name": "notas", "type": "text" },
+      { "name": "series", "type": "json", "maxSize": 0 },
+      { "name": "created", "type": "autodate", "onCreate": true, "onUpdate": false },
+      { "name": "updated", "type": "autodate", "onCreate": true, "onUpdate": true }
+    ]
+  }
+]
