@@ -28,6 +28,9 @@ Orden cronológico interno de todo el UCM (pelis, series y especiales, más los 
 ### 🏋️ Fuerza 5/3/1 (`/fuerza-531`)
 Tracker de mi plan Upper/Lower a 4 días con 5/3/1. Muestra los pesos del día (con calentamiento y discos por lado para la barra de 10 kg), y ahí mismo anoto reps, peso real y RPE de la serie AMRAP, más los accesorios. Calcula el 1RM estimado, avisa de récords, grafica el progreso y al cerrar cada ciclo sugiere si subir, mantener o bajar el TM. Cada sesión genera un resumen para pegárselo a Claude, que hace de coach. Datos en PocketBase (`fuerza_tms` y `fuerza_sesiones`, esquema en `fuerza-531/pb_schema.json`); funciona sin conexión y sube lo pendiente después.
 
+### 📡 Monitor (`/server-monitor`)
+Panel del servidor casero (Termux + PocketBase + ngrok). Sin login muestra si el servidor está arriba, con latencia e historial de 7 días y aviso tras fallos seguidos. Con login de superusuario muestra logs, accesos fallidos, revisión de seguridad, colecciones y backups. La sesión de admin vive solo en `sessionStorage`.
+
 ---
 
 ## 🗂️ Estructura
@@ -37,15 +40,25 @@ personal-tools/
 ├── index.html          # Dashboard principal
 ├── main.js             # Registro de herramientas
 ├── styles.css          # Estilos del dashboard
+├── config.js           # URL del servidor PocketBase (única fuente)
 ├── shared.css          # Variables, reset y texturas globales
 ├── _template/          # Punto de partida para nuevas apps
 │   ├── index.html
 │   └── styles.css
-├── soccer-roulette/
-├── knee-rehab/
+├── soccer-roulette/    # + css/ (estilos por sección)
+├── knee-rehab/         # + js/data.js (fases y ejercicios)
 ├── doomsday-timeline/
-└── fuerza-531/          ← + plan.js (ejercicios) y pb_schema.json
+├── fuerza-531/         # + plan.js (ejercicios), pb_schema.json y js/
+└── server-monitor/     # + js/
 ```
+
+### Apps con varios archivos
+
+Fuerza y Monitor están partidos en varios archivos de ~20–180 líneas dentro de `js/`, uno por responsabilidad (cálculos, render, eventos, sincronización, etc.). Rodilla separa los datos (`js/data.js`) de la lógica (`main.js`), y la Ruleta divide sus estilos en `css/`. No usan módulos ni build: son scripts normales que comparten el scope global, así que **el orden de los `<script>` en el `index.html` importa**. `main.js` solo contiene el arranque y se carga al final.
+
+### `config.js`
+
+Define `PB_URL`, la dirección del servidor PocketBase que usan Fuerza, Doomsday y Monitor. Si cambia el túnel de ngrok, se edita solo ahí. Las apps que lo usan lo cargan con `<script src="../config.js">` antes de su `main.js`.
 
 ### `shared.css`
 
@@ -55,7 +68,7 @@ Todas las apps comparten un mismo archivo base con las variables de diseño (col
 
 ## 🛠️ Stack
 
-Todo vanilla: HTML, CSS y JS. Sin dependencias, sin build tools, se abre directo en el navegador. Las fuentes son de Google Fonts (Bebas Neue, Space Mono, DM Serif Display).
+Todo vanilla: HTML, CSS y JS, sin build tools. Única dependencia externa: el SDK de PocketBase (CDN) en las apps con datos remotos. Las fuentes son de Google Fonts (Bebas Neue, Space Mono, DM Serif Display).
 
 ---
 
@@ -65,7 +78,8 @@ Todo vanilla: HTML, CSS y JS. Sin dependencias, sin build tools, se abre directo
 2. **Editar el `index.html`** — cambiar título, categoría y descripción en el header
 3. **Escribir los estilos** en `styles.css` (variables y fondo ya vienen de `shared.css`)
 4. **Crear `main.js`** con la lógica de la app
-5. **Registrarla** en el array `TOOLS` del `main.js` raíz
+5. **Registrarla** en el array `TOOLS` del `main.js` raíz (con `quick: "Nombre"` aparece también en el acceso rápido)
+6. Si guarda datos en PocketBase, cargar el SDK y `../config.js` antes de su `main.js`
 
 ```js
 {

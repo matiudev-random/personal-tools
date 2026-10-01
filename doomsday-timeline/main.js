@@ -2,7 +2,6 @@
    CONFIG — los datos viven en PocketBase
    (colecciones "marvel_bloques" y "marvel_titulos"; el avance es marvel_titulos.vista)
 ───────────────────────────────────────── */
-const PB_URL = "https://remindful-tanned-concierge.ngrok-free.dev";
 const CACHE_KEY = "doomsday-cache";          // última lista + avance descargados
 const PENDING_KEY = "doomsday-pending";      // cambios aún sin subir {codigo: bool}
 const OLD_KEY = "doomsday-timeline-progress"; // avance de la versión solo-localStorage

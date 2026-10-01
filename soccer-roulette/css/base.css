@@ -1,0 +1,186 @@
+/* ───────────────────────────────────────────
+   SOCCER-ROULETTE — estilos específicos
+─────────────────────────────────────────── */
+
+/* ───────────────────────────────────────────
+   HEADER
+─────────────────────────────────────────── */
+.site-header {
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(180deg, #141414 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 24px 18px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.back-btn {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 3px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.back-btn:hover {
+  color: var(--orange);
+  border-color: var(--orange);
+  background: var(--orange-glow2);
+}
+
+.header-center {
+  text-align: center;
+}
+
+.header-sub {
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.site-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 5vw, 38px);
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1;
+}
+
+.site-header p {
+  font-size: 11px;
+  color: var(--text-dim);
+  font-style: italic;
+  font-family: var(--font-serif);
+}
+
+@keyframes pulse-logo {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 106, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(255, 106, 0, 0);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+main {
+  position: relative;
+  z-index: 10;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.section-label {
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.card:hover::before {
+  transform: scaleX(1);
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(255, 106, 0, 0.08);
+}
+
+.badge {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 2px;
+  color: var(--text-muted);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 700px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.players-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+@media (max-width: 700px) {
+  .players-area {
+    grid-template-columns: 1fr;
+  }
+}
+
+.player-pool {
+  animation: fadeUp 0.5s ease both;
+}
+.team-result {
+  animation: fadeUp 0.5s ease both;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
