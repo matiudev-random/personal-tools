@@ -38,6 +38,14 @@ const TOOLS = [
     href:   "fuerza-531/index.html",
     status: "active",
   },
+   {
+     title:  "Monitor",
+     desc:   "Estado del servidor casero, accesos fallidos y revisión de seguridad de PocketBase.",
+     icon:   "📡",
+     tag:    "Servidor",
+     href:   "server-monitor/index.html",
+     status: "active",
+   },
 
   // ── AÑADE TUS OTRAS APPS AQUÍ ──────────────────────────────────────────
   // {
