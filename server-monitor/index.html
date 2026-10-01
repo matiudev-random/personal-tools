@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0B0D0C" />
+  <title>Monitor — Servidor casero</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="../index.html" class="back-btn">← Dashboard</a>
+    <div class="header-center">
+      <div class="header-sub">Termux · PocketBase · ngrok</div>
+      <h1>Monitor</h1>
+    </div>
+    <span></span>
+  </header>
+
+  <main>
+
+    <!-- ─── ESTADO (público, sin login) ───────────── -->
+    <section class="card hero" id="hero" data-state="checking">
+      <div class="hero-top">
+        <span class="beacon" aria-hidden="true"></span>
+        <div class="hero-text">
+          <p class="hero-state" id="hero-state">Revisando…</p>
+          <p class="hero-reason" id="hero-reason">Consultando /api/health</p>
+        </div>
+        <div class="hero-ms"><b id="hero-ms">—</b><span>ms</span></div>
+      </div>
+      <div class="ticks" id="ticks" aria-label="Últimas revisiones"></div>
+      <div class="hero-foot">
+        <span id="last-check">—</span>
+        <button class="ghost-btn" id="check-now">Revisar ahora</button>
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="stat"><span class="stat-lbl">Disponibilidad</span><b id="st-uptime">—</b><small id="st-uptime-sub">en lo registrado</small></div>
+      <div class="stat"><span class="stat-lbl">Latencia prom.</span><b id="st-avg">—</b><small id="st-avg-sub">últimas 60</small></div>
+      <div class="stat"><span class="stat-lbl">Caídas</span><b id="st-drops">—</b><small id="st-drops-sub">registradas</small></div>
+    </div>
+
+    <section class="card">
+      <div class="card-head">
+        <h3>Latencia</h3>
+        <span class="card-meta" id="lat-meta"></span>
+      </div>
+      <div class="chart" id="lat-chart"></div>
+    </section>
+
+    <section class="card notify">
+      <div>
+        <p class="row-title">Avisarme si se cae</p>
+        <p class="row-sub" id="notify-sub">Notificación del navegador mientras esta pestaña esté abierta.</p>
+      </div>
+      <button class="switch" id="notify" role="switch" aria-checked="false"><span></span></button>
+    </section>
+
+    <!-- ─── ADMIN (superuser) ────────────────────── -->
+    <h2 class="section-title">Panel de administración</h2>
+
+    <section class="card" id="login-card">
+      <p class="row-sub">Para ver logs, intentos de acceso y la revisión de seguridad necesitas entrar como <b>superuser</b> de PocketBase. La sesión solo dura mientras esta pestaña esté abierta.</p>
+      <form class="login-form" id="login-form">
+        <input name="email" type="email" placeholder="Correo del superuser" autocomplete="username" required />
+        <input name="password" type="password" placeholder="Contraseña" autocomplete="current-password" required />
+        <button class="primary-btn" type="submit">Entrar</button>
+        <p class="form-msg" id="login-msg"></p>
+      </form>
+    </section>
+
+    <div id="admin" hidden>
+      <div class="admin-bar">
+        <span id="admin-user"></span>
+        <span class="admin-actions">
+          <button class="ghost-btn" id="admin-refresh">Actualizar</button>
+          <button class="ghost-btn" id="logout">Salir</button>
+        </span>
+      </div>
+
+      <section class="card" id="device-card"></section>
+      <section class="card" id="traffic-card"></section>
+      <section class="card" id="fails-card"></section>
+      <section class="card" id="security-card"></section>
+      <section class="card" id="data-card"></section>
+    </div>
+
+  </main>
+
+  <footer class="foot">
+    <span id="server-url"></span>
+    <span>El historial se guarda solo en este dispositivo y únicamente mientras la página está abierta.</span>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/pocketbase@0.28.1/dist/pocketbase.umd.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
