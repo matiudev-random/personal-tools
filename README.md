@@ -27,6 +27,7 @@ Orden cronológico interno de todo el UCM (pelis, series y especiales, más los 
 
 ### 🏋️ Fuerza 5/3/1 (`/fuerza-531`)
 Tracker de mi plan Upper/Lower a 4 días con 5/3/1. Muestra los pesos del día (con calentamiento y discos por lado para la barra de 10 kg), y ahí mismo anoto reps, peso real y RPE de la serie AMRAP, más los accesorios. Calcula el 1RM estimado, avisa de récords, grafica el progreso y al cerrar cada ciclo sugiere si subir, mantener o bajar el TM. Cada sesión genera un resumen para pegárselo a Claude, que hace de coach. Datos en PocketBase (`fuerza_tms` y `fuerza_sesiones`, esquema en `fuerza-531/pb_schema.json`); funciona sin conexión y sube lo pendiente después.
+
 ---
 
 ## 🗂️ Estructura
