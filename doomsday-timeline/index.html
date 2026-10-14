@@ -6,17 +6,15 @@
   <title>Camino a Doomsday — Cronológico</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../shared.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <div class="noise"></div>
-  <div class="grid-bg"></div>
 
   <header class="site-header">
-    <a href="../index.html" class="back-btn">← Dashboard</a>
+    <a href="../index.html" class="back-btn">Dashboard</a>
     <div class="header-center">
       <div class="header-sub">Orden cronológico interno · rumbo al 18 de diciembre</div>
       <h1>Camino a <span class="em">Doomsday</span></h1>
@@ -28,8 +26,7 @@
   <main>
 
     <section class="countdown">
-      <span class="rv"></span><span class="rv2"></span>
-      <div class="cd-label">Faltan para el estreno</div>
+      <div class="cd-label"><span class="led pulse"></span>Faltan para el estreno</div>
       <div class="cd-grid" id="cd">
         <div class="cd-unit"><span class="cd-num" id="cd-d">—</span><span class="cd-cap">días</span></div>
         <div class="cd-unit"><span class="cd-num" id="cd-h">—</span><span class="cd-cap">horas</span></div>
@@ -38,7 +35,7 @@
       </div>
     </section>
 
-    <section class="meter">
+    <section class="meter corner">
       <div class="meter-top">
         <span class="meter-title">Tu avance</span>
         <span class="meter-count"><b id="seen">0</b> / <span id="total">0</span> vistos</span>
@@ -56,14 +53,14 @@
     <div id="list"></div>
 
     <section class="goal">
-      <p class="eyebrow">Meta</p>
+      <p class="eyebrow red">Meta</p>
       <h2>Avengers: Doomsday</h2>
       <p>18 de diciembre de 2026 · en cines · dirigen Anthony y Joe Russo</p>
     </section>
 
   </main>
 
-  <footer>
+  <footer class="doom-footer">
     <p class="footer-note">Antes de <em>Endgame</em> las fechas están confirmadas dentro de las propias películas. Después, Marvel dejó de fechar varias series, así que ese tramo va ordenado por lógica narrativa y es discutible.</p>
     <div class="footer-actions">
       <button class="reset" id="reset">Borrar mi avance</button>

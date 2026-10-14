@@ -81,7 +81,7 @@ function chartCard(title, pts, color, unit, kind, sub) {
 function renderProgress() {
   $("charts").innerHTML =
     Object.entries(LIFTS).map(([id, L]) => chartCard(L.short, liftSeries(id), L.color, "kg", "line", "1RM estimado por sesión")).join("") +
-    chartCard("Dominadas", pullupSeries(), "#43A066", "reps", "bar", "Reps totales por sesión");
+    chartCard("Dominadas", pullupSeries(), "#2e8b4f", "reps", "bar", "Reps totales por sesión");
   renderHistory();
 }
 

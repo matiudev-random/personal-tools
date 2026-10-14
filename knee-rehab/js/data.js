@@ -27,8 +27,6 @@ const phases = [
     name: "FASE 1",
     subtitle: "Calmar la irritación",
     weeks: "Sem. 1–2",
-    color: "#ef4444",
-    icon: "🧊",
     description:
       "Sin ejercicio de carga. Objetivo: bajar la inflamación por los 3 partidos seguidos.",
     days: [
@@ -79,9 +77,9 @@ const phases = [
       },
     ],
     warnings: [
-      "❌ Nada de fútbol",
-      "❌ Nada de sentadillas ni saltos",
-      "❌ Evitar estar de pie estático mucho tiempo",
+      "no: Nada de fútbol",
+      "no: Nada de sentadillas ni saltos",
+      "no: Evitar estar de pie estático mucho tiempo",
     ],
   },
   {
@@ -89,8 +87,6 @@ const phases = [
     name: "FASE 2",
     subtitle: "Carga isométrica",
     weeks: "Sem. 2–4",
-    color: "#f97316",
-    icon: "💪",
     description:
       "El tendón empieza a trabajar. Isométricos para aliviar dolor y estimular el tendón. Progresión gradual semana a semana.",
     days: [
@@ -98,7 +94,7 @@ const phases = [
         label: "Una vez al día",
         sessions: [
           {
-            name: "🎯 Tendón — PRIORIDAD",
+            name: "Tendón — PRIORIDAD",
             exercises: [
               {
                 name: "Isométrico en pared (wall sit)",
@@ -124,7 +120,7 @@ const phases = [
             ],
           },
           {
-            name: "🍑 Cadera y Glúteos",
+            name: "Cadera y Glúteos",
             exercises: [
               {
                 name: "Puente de glúteos",
@@ -141,7 +137,7 @@ const phases = [
             ],
           },
           {
-            name: "🧱 Core",
+            name: "Core",
             exercises: [
               {
                 name: "Plancha frontal",
@@ -155,10 +151,10 @@ const phases = [
       },
     ],
     warnings: [
-      "❌ Nada de fútbol",
-      "❌ Nada de sentadillas con carga",
-      "✅ Caminar normal con moderación",
-      "⚠️ Avanza al siguiente ejercicio solo si el anterior no genera dolor al día siguiente",
+      "no: Nada de fútbol",
+      "no: Nada de sentadillas con carga",
+      "ok: Caminar normal con moderación",
+      "ojo: Avanza al siguiente ejercicio solo si el anterior no genera dolor al día siguiente",
     ],
   },
   {
@@ -166,8 +162,6 @@ const phases = [
     name: "FASE 3",
     subtitle: "Carga isotónica",
     weeks: "Sem. 4–8",
-    color: "#eab308",
-    icon: "⚡",
     description:
       "Rehabilitación real. La sentadilla en declive es el ejercicio estrella. Cada 2 días, no diario.",
     days: [
@@ -175,7 +169,7 @@ const phases = [
         label: "Cada 2 días (L/M/V)",
         sessions: [
           {
-            name: "🔥 Calentamiento de tendón",
+            name: "Calentamiento de tendón",
             exercises: [
               {
                 name: "Isométrico en pared (wall sit)",
@@ -186,7 +180,7 @@ const phases = [
             ],
           },
           {
-            name: "🎯 Tendón — PRIORIDAD",
+            name: "Tendón — PRIORIDAD",
             exercises: [
               {
                 name: "Sentadilla en declive",
@@ -212,7 +206,7 @@ const phases = [
             ],
           },
           {
-            name: "🦵 Pierna completa",
+            name: "Pierna completa",
             exercises: [
               {
                 name: "Sentadilla peso corporal",
@@ -232,10 +226,10 @@ const phases = [
       },
     ],
     warnings: [
-      "❌ Nada de fútbol",
-      "✅ Gym semana 7–8 con poco peso",
-      "⚠️ Si duele más al día siguiente → reduce carga",
-      "⚠️ Avanza de semana solo si el dolor al día siguiente es menor a 3/10",
+      "no: Nada de fútbol",
+      "ok: Gym semana 7–8 con poco peso",
+      "ojo: Si duele más al día siguiente → reduce carga",
+      "ojo: Avanza de semana solo si el dolor al día siguiente es menor a 3/10",
     ],
   },
   {
@@ -243,15 +237,13 @@ const phases = [
     name: "FASE 4",
     subtitle: "Vuelta al gym",
     weeks: "Mes 2",
-    color: "#22c55e",
-    icon: "🏋️",
     description: "Cargas progresivas en gym cuando toleras bien la fase 3.",
     days: [
       {
         label: "3–4 días a la semana",
         sessions: [
           {
-            name: "🔥 Calentamiento de tendón",
+            name: "Calentamiento de tendón",
             exercises: [
               {
                 name: "Isométrico en pared (wall sit)",
@@ -268,7 +260,7 @@ const phases = [
             ],
           },
           {
-            name: "🦵 Pierna en gym",
+            name: "Pierna en gym",
             exercises: [
               {
                 name: "Sentadilla con barra",
@@ -294,10 +286,10 @@ const phases = [
       },
     ],
     warnings: [
-      "❌ Nada de fútbol todavía",
-      "❌ Sin saltos ni pliometría",
-      "✅ Progresa el peso cada semana si no hay dolor",
-      "⚠️ Si duele al día siguiente → mantén el mismo peso una semana más",
+      "no: Nada de fútbol todavía",
+      "no: Sin saltos ni pliometría",
+      "ok: Progresa el peso cada semana si no hay dolor",
+      "ojo: Si duele al día siguiente → mantén el mismo peso una semana más",
     ],
   },
   {
@@ -305,15 +297,13 @@ const phases = [
     name: "FASE 5",
     subtitle: "Vuelta al fútbol",
     weeks: "Mes 3+",
-    color: "#3b82f6",
-    icon: "⚽",
     description: "Retorno gradual tras superar pruebas de fuerza sin dolor.",
     days: [
       {
         label: "Progresión gradual",
         sessions: [
           {
-            name: "🔥 Mantenimiento de tendón",
+            name: "Mantenimiento de tendón",
             exercises: [
               {
                 name: "Sentadilla en declive",
@@ -324,7 +314,7 @@ const phases = [
             ],
           },
           {
-            name: "📈 Progresión de vuelta al campo",
+            name: "Progresión de vuelta al campo",
             exercises: [
               {
                 name: "Trote suave",
@@ -360,10 +350,10 @@ const phases = [
       },
     ],
     warnings: [
-      "✅ Mantén sentadilla en declive 2x semana para siempre",
-      "⚠️ Si duele durante o después → vuelve a Fase 3",
-      "❌ Sin disparos fuertes hasta semana 5+",
-      "✅ El tendón ya rehabilitado es más fuerte que antes si lo mantienes",
+      "ok: Mantén sentadilla en declive 2x semana para siempre",
+      "ojo: Si duele durante o después → vuelve a Fase 3",
+      "no: Sin disparos fuertes hasta semana 5+",
+      "ok: El tendón ya rehabilitado es más fuerte que antes si lo mantienes",
     ],
   },
 ];
@@ -371,28 +361,28 @@ const phases = [
 const ruleOfPain = [
   {
     level: "0–3/10",
-    color: "#22c55e",
+    color: "green",
     label: "Verde",
     action: "Entrena normal",
   },
   {
     level: "4/10",
-    color: "#eab308",
+    color: "amber",
     label: "Límite",
     action: "No aumentes carga",
   },
-  { level: "5+/10", color: "#ef4444", label: "Rojo", action: "Para. Descansa" },
+  { level: "5+/10", color: "red", label: "Rojo", action: "Para. Descansa" },
   {
     level: "Día Sig.",
-    color: "#7c3aed",
+    color: "blue",
     label: "Clave",
     action: "Baja volumen",
   },
 ];
 
 const habitsData = [
-  ["💧", "Hidratación", "Los tendones necesitan agua"],
-  ["🥩", "Proteína", "Necesaria para reparar colágeno"],
-  ["😴", "Dormir", "El tendón se repara de noche"],
-  ["🧊", "Hielo", "Post-actividad si hay molestia"],
+  ["Hidratación", "Los tendones necesitan agua"],
+  ["Proteína", "Necesaria para reparar colágeno"],
+  ["Dormir", "El tendón se repara de noche"],
+  ["Hielo", "Post-actividad si hay molestia"],
 ];

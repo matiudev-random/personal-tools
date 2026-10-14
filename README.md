@@ -41,7 +41,7 @@ personal-tools/
 ├── main.js             # Registro de herramientas
 ├── styles.css          # Estilos del dashboard
 ├── config.js           # URL del servidor PocketBase (única fuente)
-├── shared.css          # Variables, reset y texturas globales
+├── shared.css          # Diseño base: tokens, cabecera y componentes comunes
 ├── _template/          # Punto de partida para nuevas apps
 │   ├── index.html
 │   └── styles.css
@@ -62,13 +62,13 @@ Define `PB_URL`, la dirección del servidor PocketBase que usan Fuerza, Doomsday
 
 ### `shared.css`
 
-Todas las apps (menos el dashboard, que tiene su propio diseño estilo panel industrial en `styles.css`) comparten un mismo archivo base con las variables de diseño (colores, fuentes), el reset CSS y las texturas de fondo (grilla y ruido). Cada app solo define sus estilos propios en su `styles.css`.
+El dashboard y todas las apps comparten el diseño **panel de instrumentos industrial** (grafito + arena + rojo señal). `shared.css` tiene los tokens (colores, fuentes, radios), el reset, la cabecera oscura con franja de peligro (`.site-header`) y los componentes comunes: `.panel`, `.btn`, `.tag`, `.status` + `.led`, `.eyebrow`, `.callout`, `.toast` y `.app-footer`. Cada app solo define sus estilos propios en su `styles.css`.
 
 ---
 
 ## 🛠️ Stack
 
-Todo vanilla: HTML, CSS y JS, sin build tools. Única dependencia externa: el SDK de PocketBase (CDN) en las apps con datos remotos. Las fuentes son de Google Fonts (Bebas Neue, Space Mono, DM Serif Display).
+Todo vanilla: HTML, CSS y JS, sin build tools. Única dependencia externa: el SDK de PocketBase (CDN) en las apps con datos remotos. Las fuentes son de Google Fonts (Barlow Condensed, Barlow y JetBrains Mono).
 
 ---
 
@@ -76,7 +76,7 @@ Todo vanilla: HTML, CSS y JS, sin build tools. Única dependencia externa: el SD
 
 1. **Copiar la carpeta `_template/`** y renombrarla
 2. **Editar el `index.html`** — cambiar título, categoría y descripción en el header
-3. **Escribir los estilos** en `styles.css` (variables y fondo ya vienen de `shared.css`)
+3. **Escribir los estilos** en `styles.css` (tokens, cabecera y componentes ya vienen de `shared.css`)
 4. **Crear `main.js`** con la lógica de la app
 5. **Registrarla** en el array `TOOLS` del `main.js` raíz (con `quick: "Nombre"` aparece también en el acceso rápido; si necesita un ícono nuevo, se agrega su SVG a `ICONS`)
 6. Si guarda datos en PocketBase, cargar el SDK y `../config.js` antes de su `main.js`

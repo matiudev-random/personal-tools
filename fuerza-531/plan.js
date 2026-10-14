@@ -13,9 +13,9 @@ const GYM = {
 
 // Levantamientos principales (llevan TM)
 const LIFTS = {
-  banca:      { name: "Press Banca",                short: "Banca",      type: "barbell",  inc: 2.5, color: "#E0503F" },
-  sentadilla: { name: "Sentadilla",                 short: "Sentadilla", type: "barbell",  inc: 5,   color: "#4A8FD0" },
-  militar:    { name: "Press Militar (mancuernas)", short: "Militar",    type: "dumbbell", inc: 2.5, color: "#C99A22" },
+  banca:      { name: "Press Banca",                short: "Banca",      type: "barbell",  inc: 2.5, color: "#d11a2a" },
+  sentadilla: { name: "Sentadilla",                 short: "Sentadilla", type: "barbell",  inc: 5,   color: "#2a5bd7" },
+  militar:    { name: "Press Militar (mancuernas)", short: "Militar",    type: "dumbbell", inc: 2.5, color: "#e29a0b" },
 };
 
 // TMs de partida (se usan solo si todavía no hay ninguno guardado)
@@ -46,7 +46,7 @@ const WARMUP = [
 */
 const DAYS = {
   1: {
-    name: "Upper pesado", color: "#C8342A", lift: "banca",
+    name: "Upper pesado", color: "#d11a2a", lift: "banca",
     accessories: [
       { id: "dominadas", name: "Dominadas agarre prono", sets: 5, target: "2-3+", unit: "lastre", kg: 0, reps: 3,
         note: "Prioridad. 2-3 es el piso, no el techo. Descanso 2 min." },
@@ -55,7 +55,7 @@ const DAYS = {
     ],
   },
   2: {
-    name: "Lower pesado", color: "#2F72AD", lift: "sentadilla",
+    name: "Lower pesado", color: "#2a5bd7", lift: "sentadilla",
     accessories: [
       { id: "zancadas", name: "Zancadas con mancuernas", sets: 3, target: "10 por pierna", unit: "total", kg: 25, reps: 10,
         note: "RPE 7. Sube 2-2,5 kg por mano tras 2 sesiones fáciles. Descanso 90 seg." },
@@ -64,7 +64,7 @@ const DAYS = {
     ],
   },
   3: {
-    name: "Upper liviano", color: "#D6A92C", lift: "militar",
+    name: "Upper liviano", color: "#e29a0b", lift: "militar",
     accessories: [
       { id: "remo-t", name: "Remo en T", sets: 4, target: "8", unit: "total", kg: 40, reps: 8,
         note: "RPE 7-8. Descanso 2 min." },
@@ -75,7 +75,7 @@ const DAYS = {
     ],
   },
   4: {
-    name: "Lower liviano", color: "#3F8F5C", lift: null,
+    name: "Lower liviano", color: "#2e8b4f", lift: null,
     accessories: [
       { id: "prensa", name: "Prensa", sets: 4, target: "8", unit: "total", kg: null, reps: 8,
         note: "RPE 7, calibra el peso en la primera serie. Descanso 2 min." },

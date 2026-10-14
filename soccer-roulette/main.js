@@ -43,7 +43,7 @@ function renderPlayers() {
       <span class="player-name">${p.name}</span>
       <span class="player-pos">${p.pos}</span>
       <span class="player-skill">${p.skill}</span>
-      <button class="btn btn-danger btn-sm" style="padding:4px 8px;font-size:9px;margin-left:4px" onclick="removePlayer(${p.id},event)">✕</button>`;
+      <button class="btn btn-danger btn-sm btn-remove" aria-label="Quitar" onclick="removePlayer(${p.id},event)">✕</button>`;
     li.onclick = (e) => {
       if (e.target.tagName === "BUTTON") return;
       p.selected = !p.selected;
@@ -98,37 +98,26 @@ function drawRoulette(angle) {
   if (sel.length === 0) {
     ctx.beginPath();
     ctx.arc(CX, CY, R, 0, Math.PI * 2);
-    ctx.fillStyle = "#181818";
+    ctx.fillStyle = "#e3dbcd";
     ctx.fill();
-    ctx.strokeStyle = "#272727";
-    ctx.lineWidth = 2;
-    ctx.stroke();
-    ctx.fillStyle = "#444";
-    ctx.font = "13px Space Mono";
+    ctx.fillStyle = "#706a5f";
+    ctx.font = "600 15px 'Barlow Condensed', sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText("Sin jugadores", CX, CY);
+    ctx.fillText("SIN JUGADORES", CX, CY + 5);
     return;
   }
   const slice = (Math.PI * 2) / sel.length;
-  const colors = [
-    "#ff6a00",
-    "#c45200",
-    "#ff8c3a",
-    "#e05500",
-    "#ff7a1a",
-    "#b84d00",
-    "#ff9955",
-    "#d46000",
-  ];
+  // Grafito / rojo señal / grafito claro, alternando
+  const colors = ["#16181b", "#d11a2a", "#2b2f34", "#a3101d"];
   sel.forEach((p, i) => {
     const a = angle + i * slice;
     ctx.beginPath();
     ctx.moveTo(CX, CY);
     ctx.arc(CX, CY, R, a, a + slice);
     ctx.closePath();
-    ctx.fillStyle = colors[i % colors.length];
+    ctx.fillStyle = colors[(sel.length % colors.length === 1 && i === sel.length - 1) ? 2 : i % colors.length];
     ctx.fill();
-    ctx.strokeStyle = "#0a0a0a";
+    ctx.strokeStyle = "#fbf9f5";
     ctx.lineWidth = 2;
     ctx.stroke();
     ctx.save();
@@ -136,25 +125,25 @@ function drawRoulette(angle) {
     ctx.rotate(a + slice / 2);
     ctx.textAlign = "right";
     const fs = sel.length > 12 ? 9 : sel.length > 8 ? 10 : 12;
-    ctx.font = `700 ${fs}px Space Mono`;
-    ctx.fillStyle = "#0a0a0a";
+    ctx.font = `700 ${fs + 3}px 'Barlow Condensed', sans-serif`;
+    ctx.fillStyle = "#fbf9f5";
     const maxLen = sel.length > 10 ? 8 : 12;
     const nm =
       p.name.length > maxLen ? p.name.substring(0, maxLen - 1) + "…" : p.name;
-    ctx.fillText(nm, R - 8, 4);
+    ctx.fillText(nm.toUpperCase(), R - 10, 5);
     ctx.restore();
   });
   ctx.beginPath();
   ctx.arc(CX, CY, 24, 0, Math.PI * 2);
-  ctx.fillStyle = "#111";
+  ctx.fillStyle = "#fbf9f5";
   ctx.fill();
-  ctx.strokeStyle = "#272727";
-  ctx.lineWidth = 2;
+  ctx.strokeStyle = "#16181b";
+  ctx.lineWidth = 3;
   ctx.stroke();
-  ctx.fillStyle = "#f0ebe0";
-  ctx.font = "bold 11px Space Mono";
+  ctx.fillStyle = "#16181b";
+  ctx.font = "800 15px 'Barlow Condensed', sans-serif";
   ctx.textAlign = "center";
-  ctx.fillText("GO", CX, CY + 4);
+  ctx.fillText("GO", CX, CY + 5);
 }
 
 function updateRoulette() {
@@ -185,7 +174,7 @@ function startSorteo() {
   document.getElementById("btn-sortear").disabled = true;
   const state = document.getElementById("spin-state");
   state.classList.add("active");
-  document.getElementById("spin-msg").textContent = "Sorteando jugadores...";
+  document.getElementById("spin-msg").textContent = "Sorteando jugadores…";
   const totalRot = Math.PI * 2 * 6 + Math.random() * Math.PI * 2;
   const duration = 3200;
   const start = performance.now();
@@ -222,10 +211,10 @@ function showTeams(sel) {
   ra.innerHTML = "";
   rb.innerHTML = "";
   tA.forEach((p) => {
-    ra.innerHTML += `<div class="team-player"><span class="team-player-name">${p.name}</span><span style="font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#444;margin-right:6px">${p.pos}</span><span class="team-player-skill">${p.skill}</span></div>`;
+    ra.innerHTML += `<div class="team-player"><span class="team-player-name">${p.name}</span><span class="team-player-pos">${p.pos}</span><span class="team-player-skill">${p.skill}</span></div>`;
   });
   tB.forEach((p) => {
-    rb.innerHTML += `<div class="team-player"><span class="team-player-name">${p.name}</span><span style="font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#444;margin-right:6px">${p.pos}</span><span class="team-player-skill">${p.skill}</span></div>`;
+    rb.innerHTML += `<div class="team-player"><span class="team-player-name">${p.name}</span><span class="team-player-pos">${p.pos}</span><span class="team-player-skill">${p.skill}</span></div>`;
   });
   document.getElementById("teams-output").style.display = "block";
   document
@@ -242,3 +231,6 @@ function resetSorteo() {
 
 renderPlayers();
 drawRoulette(0);
+
+// Redibuja cuando cargue la fuente condensada del canvas
+document.fonts?.ready.then(() => drawRoulette(currentAngle));

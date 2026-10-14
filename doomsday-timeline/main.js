@@ -45,7 +45,7 @@ function render() {
     document.getElementById("total").textContent = 0;
     return;
   }
-  list.innerHTML = DATA.map((block, i) => `<section class="plate${block.aside ? " aside" : ""}" data-block="${i}"><span class="rv"></span><span class="rv2"></span>
+  list.innerHTML = DATA.map((block, i) => `<section class="plate${block.aside ? " aside" : ""}" data-block="${i}">
   <div class="plate-head"><span class="plate-num">${esc(block.tag)}</span><h2 class="plate-name">${esc(block.name)}</h2><span class="plate-tally" data-tally="${i}"></span></div>
   ${block.note ? `<p class="plate-note">${esc(block.note)}</p>` : ""}
   <ul>${block.items.map(it => `<li class="row" data-id="${esc(it.id)}"><input type="checkbox" id="${esc(it.id)}" aria-label="${esc(it.t)}"><label class="info" for="${esc(it.id)}"><span class="title">${esc(it.t)}</span><span class="metaline">${it.u ? `<em>${esc(it.u)}</em> · ` : ""}${esc(it.k)} · estreno ${esc(it.r)} — ${esc(it.n)}</span></label><span class="tag t-${esc(it.p)}">${esc(it.p)}</span></li>`).join("")}</ul></section>`).join("");
@@ -235,7 +235,7 @@ function tick() {
     document.getElementById("cd").innerHTML = '<div class="cd-num">Ya está en cines</div>';
     return;
   }
-  document.getElementById("cd-d").textContent = Math.floor(diff / 86400000);
+  document.getElementById("cd-d").textContent = String(Math.floor(diff / 86400000)).padStart(3, "0");
   document.getElementById("cd-h").textContent = String(Math.floor(diff % 86400000 / 3600000)).padStart(2, "0");
   document.getElementById("cd-m").textContent = String(Math.floor(diff % 3600000 / 60000)).padStart(2, "0");
 }

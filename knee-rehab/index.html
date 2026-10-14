@@ -6,17 +6,15 @@
   <title>Recuperación Tendinopatía Rotuliana</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../shared.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <div class="noise"></div>
-  <div class="grid-bg"></div>
 
   <header class="site-header">
-    <a href="../index.html" class="back-btn">← Dashboard</a>
+    <a href="../index.html" class="back-btn">Dashboard</a>
     <div class="header-center">
       <div class="header-sub">Plan de Recuperación</div>
       <h1>Tendinopatía Rotuliana</h1>
@@ -30,19 +28,19 @@
   <div class="container">
     <div id="phaseContent"></div>
 
-    <div class="info-block">
-      <div class="info-title">⚠️ Regla del dolor — Siempre</div>
+    <section class="panel">
+      <div class="panel-head"><h2>Regla del dolor</h2><span class="panel-meta">Siempre</span></div>
       <div id="painRules"></div>
-    </div>
+    </section>
 
-    <div class="info-block">
-      <div class="info-title">📌 Hábitos diarios (todo el proceso)</div>
+    <section class="panel">
+      <div class="panel-head"><h2>Hábitos diarios</h2><span class="panel-meta">Todo el proceso</span></div>
       <div id="habits"></div>
-    </div>
+    </section>
 
-    <div class="footer">
+    <p class="callout">
       Consulta siempre con un fisioterapeuta para ajustar este plan a tu caso específico.
-    </div>
+    </p>
   </div>
 
   <script src="js/data.js"></script>

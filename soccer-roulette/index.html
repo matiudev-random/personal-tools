@@ -6,7 +6,7 @@
     <title>DIVISIÓN DE EQUIPOS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../shared.css" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/players.css" />
@@ -15,14 +15,12 @@
     <link rel="stylesheet" href="css/footer-tabs.css" />
   </head>
   <body>
-      <div class="noise"></div>
-  <div class="grid-bg"></div>
 
     <header class="site-header">
-      <a href="../index.html" class="back-btn">← Dashboard</a>
+      <a href="../index.html" class="back-btn">Dashboard</a>
       <div class="header-center">
         <div class="header-sub">Ruleta Inteligente</div>
-        <h1>DIVISIÓN DE EQUIPOS</h1>
+        <h1>División de <span class="em">equipos</span></h1>
         <p>Sistema de sorteo balanceado por habilidad</p>
       </div>
     </header>
@@ -30,20 +28,19 @@
     <main>
       <div class="info-strip">
         <div class="info-chip">
-          <div class="chip-dot green"></div>
+          <span class="led green"></span>
           Sistema activo
         </div>
         <div class="info-chip">
-          <div class="chip-dot orange"></div>
+          <span class="team-swatch a"></span>
           Equipo A
         </div>
         <div class="info-chip">
-          <div class="chip-dot blue"></div>
+          <span class="team-swatch b"></span>
           Equipo B
         </div>
         <div class="info-chip" id="selected-info">
-          <div class="chip-dot green"></div>
-          <span id="sel-count">0</span> seleccionados
+          <span class="num" id="sel-count">0</span> seleccionados
         </div>
       </div>
 
@@ -63,7 +60,7 @@
               <div class="section-label">Jugadores disponibles</div>
               <div style="display: flex; gap: 8px; align-items: center">
                 <span class="counter-badge" id="counter-badge">0 / 0</span>
-                <button class="btn btn-secondary btn-sm" onclick="toggleAll()">
+                <button class="btn btn-sm" onclick="toggleAll()">
                   Sel. todos
                 </button>
               </div>
@@ -77,7 +74,7 @@
               <div class="input-group">
                 <label class="input-label">Nombre</label>
                 <input
-                  class="txt-input"
+                  class="txt-input input"
                   id="new-name"
                   type="text"
                   placeholder="Nombre del jugador..."
@@ -85,7 +82,7 @@
               </div>
               <div class="input-group">
                 <label class="input-label">Posición</label>
-                <select class="txt-input" id="new-pos">
+                <select class="txt-input input" id="new-pos">
                   <option value="ARQ">Arquero</option>
                   <option value="DEF">Defensor</option>
                   <option value="MED">Mediocampista</option>
@@ -117,152 +114,26 @@
           </div>
         </div>
 
-        <div class="card" style="display: flex; flex-direction: column">
+        <div class="card">
           <div class="section-label">Instrucciones</div>
-          <div
-            style="
-              font-size: 11px;
-              color: var(--text-muted);
-              line-height: 1.8;
-              margin-top: 8px;
-            "
-          >
-            <p style="margin-bottom: 10px">
-              ① Selecciona los jugadores que van a participar en el partido de
-              hoy.
-            </p>
-            <p style="margin-bottom: 10px">
-              ② Presiona
-              <span style="color: var(--orange)">SORTEAR EQUIPOS</span> para
-              distribuir jugadores balanceando el promedio de habilidad.
-            </p>
-            <p style="margin-bottom: 10px">
-              ③ El algoritmo optimiza para que ambos equipos tengan el mismo
-              promedio.
-            </p>
-            <p>
-              ④ Puedes agregar jugadores nuevos con la pestaña
-              <span style="color: var(--orange)">+ AGREGAR</span>.
-            </p>
-          </div>
+          <ol class="steps">
+            <li><span class="code">01</span><p>Selecciona los jugadores que van a participar en el partido de hoy.</p></li>
+            <li><span class="code">02</span><p>Presiona <b>Sortear equipos</b> para distribuir jugadores balanceando el promedio de habilidad.</p></li>
+            <li><span class="code">03</span><p>El algoritmo optimiza para que ambos equipos tengan el mismo promedio.</p></li>
+            <li><span class="code">04</span><p>Puedes agregar jugadores nuevos con la pestaña <b>+ Agregar</b>.</p></li>
+          </ol>
           <hr class="divider" />
           <div class="section-label">Habilidad — referencia</div>
-          <div
-            style="
-              display: flex;
-              flex-direction: column;
-              gap: 6px;
-              margin-top: 8px;
-            "
-          >
-            <div style="display: flex; align-items: center; gap: 8px">
-              <div
-                style="
-                  width: 24px;
-                  font-family: &quot;Bebas Neue&quot;;
-                  font-size: 18px;
-                  color: var(--orange);
-                "
-              >
-                9
-              </div>
-              <div
-                style="
-                  flex: 1;
-                  height: 4px;
-                  background: linear-gradient(
-                    90deg,
-                    var(--orange),
-                    var(--orange-dim)
-                  );
-                  border-radius: 2px;
-                  width: 90%;
-                "
-              ></div>
-              <span style="font-size: 10px; color: var(--text-muted)"
-                >Crack</span
-              >
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px">
-              <div
-                style="
-                  width: 24px;
-                  font-family: &quot;Bebas Neue&quot;;
-                  font-size: 18px;
-                  color: var(--orange);
-                "
-              >
-                7
-              </div>
-              <div
-                style="
-                  flex: 1;
-                  height: 4px;
-                  background: var(--orange);
-                  border-radius: 2px;
-                  opacity: 0.7;
-                  width: 70%;
-                "
-              ></div>
-              <span style="font-size: 10px; color: var(--text-muted)"
-                >Bueno</span
-              >
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px">
-              <div
-                style="
-                  width: 24px;
-                  font-family: &quot;Bebas Neue&quot;;
-                  font-size: 18px;
-                  color: var(--orange);
-                "
-              >
-                5
-              </div>
-              <div
-                style="
-                  flex: 1;
-                  height: 4px;
-                  background: var(--orange);
-                  border-radius: 2px;
-                  opacity: 0.5;
-                  width: 50%;
-                "
-              ></div>
-              <span style="font-size: 10px; color: var(--text-muted)"
-                >Regular</span
-              >
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px">
-              <div
-                style="
-                  width: 24px;
-                  font-family: &quot;Bebas Neue&quot;;
-                  font-size: 18px;
-                  color: var(--orange);
-                "
-              >
-                3
-              </div>
-              <div
-                style="
-                  flex: 1;
-                  height: 4px;
-                  background: var(--orange);
-                  border-radius: 2px;
-                  opacity: 0.3;
-                  width: 30%;
-                "
-              ></div>
-              <span style="font-size: 10px; color: var(--text-muted)"
-                >Novato</span
-              >
-            </div>
+          <div class="skill-ref">
+            <div class="skill-ref-row"><span class="num">9</span><div class="seg-bar" style="--v: 9"></div><span>Crack</span></div>
+            <div class="skill-ref-row"><span class="num">7</span><div class="seg-bar" style="--v: 7"></div><span>Bueno</span></div>
+            <div class="skill-ref-row"><span class="num">5</span><div class="seg-bar" style="--v: 5"></div><span>Regular</span></div>
+            <div class="skill-ref-row"><span class="num">3</span><div class="seg-bar" style="--v: 3"></div><span>Novato</span></div>
           </div>
         </div>
       </div>
 
-      <div class="roulette-section card">
+      <div class="roulette-section card corner">
         <div class="section-label">Sorteo de equipos</div>
         <div class="roulette-canvas-wrap">
           <canvas id="roulette" width="320" height="320"></canvas>
@@ -277,19 +148,17 @@
             onclick="startSorteo()"
             id="btn-sortear"
           >
-            ⚡ SORTEAR EQUIPOS
+            Sortear equipos
           </button>
           <button
-            class="btn btn-secondary"
+            class="btn"
             onclick="resetSorteo()"
             id="btn-reset"
           >
-            ↺ REINICIAR
+            Reiniciar
           </button>
-          <div
-            style="margin-left: auto; font-size: 10px; color: var(--text-muted)"
-          >
-            <span id="selected-count-label">0</span> jugadores seleccionados
+          <div class="sel-label">
+            <span class="num" id="selected-count-label">0</span> jugadores seleccionados
           </div>
         </div>
       </div>
@@ -315,9 +184,9 @@
       </div>
     </main>
 
-    <footer>
-      <div class="footer-txt">⚽ División de Equipos — Sistema Balanceado</div>
-      <div class="footer-txt">v1.0 — 2025</div>
+    <footer class="app-footer">
+      <span>División de equipos — Sistema balanceado</span>
+      <span>v1.0 — 2025</span>
     </footer>
 
     <script src="main.js"></script>

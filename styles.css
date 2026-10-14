@@ -1,93 +1,7 @@
 /* ───────────────────────────────────────────
    DASHBOARD — diseño "panel de instrumentos industrial"
-   Autónomo: no usa shared.css (ese queda para las apps).
+   Tokens, tipografía y firmas comunes → en shared.css
 ─────────────────────────────────────────── */
-:root {
-  /* Superficies oscuras (grafito) */
-  --ink: #16181b;  --ink-2: #202327;  --ink-3: #2b2f34;
-  --ink-line: rgba(255,255,255,.08);
-  /* Superficies claras (arena / papel) */
-  --sand: #ece6db; --sand-2: #e3dbcd; --paper: #fbf9f5;
-  --line: #d8cfbf; --line-2: #e7e0d3;
-  /* Texto */
-  --text: #1b1c1e; --muted: #706a5f;
-  /* Semáforo + marca */
-  --red: #d11a2a;   --red-deep: #a3101d;  --red-tint: #fbe6e5;
-  --amber: #e29a0b; --amber-text: #9a5f00; --amber-tint: #fdf0d5;
-  --green: #2e8b4f; --green-tint: #e3f2e7;
-  --blue: #2a5bd7;  --blue-tint: #e6edfc;
-  /* Tipografía */
-  --display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
-  --body: "Barlow", "Segoe UI", system-ui, sans-serif;
-  --mono: "JetBrains Mono", Consolas, "Courier New", monospace;
-  /* Forma */
-  --r: 4px;
-  --shadow: 0 1px 0 rgba(22,24,27,.04), 0 10px 24px -18px rgba(22,24,27,.35);
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: var(--body);
-  font-size: 14.5px;
-  line-height: 1.45;
-  color: var(--text);
-  background: var(--sand);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-h1, h2, h3 {
-  font-family: var(--display);
-  font-weight: 700;
-  letter-spacing: .01em;
-  line-height: 1.02;
-  text-transform: uppercase;
-}
-
-.mono, .num {
-  font-family: var(--mono);
-  font-variant-numeric: tabular-nums;
-}
-
-.icon {
-  width: 20px; height: 20px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  flex-shrink: 0;
-}
-
-@keyframes rise {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ───────────────────────────────────────────
-   EYEBROW
-─────────────────────────────────────────── */
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.eyebrow.red { color: var(--red); }
-
-.eyebrow.red::before {
-  content: '';
-  width: 18px; height: 2px;
-  background: var(--red);
-}
-
 /* ───────────────────────────────────────────
    HERO OSCURO
 ─────────────────────────────────────────── */
@@ -239,11 +153,6 @@ h1, h2, h3 {
   color: #f3efe8;
 }
 
-.hazard {
-  height: 12px;
-  background: repeating-linear-gradient(-45deg, var(--red) 0 14px, var(--ink) 14px 28px);
-}
-
 /* ───────────────────────────────────────────
    MAIN
 ─────────────────────────────────────────── */
@@ -297,18 +206,6 @@ h1, h2, h3 {
   box-shadow: var(--shadow);
 }
 
-/* Esquina roja */
-.corner::before {
-  content: '';
-  position: absolute;
-  top: -1px; left: -1px;
-  width: 14px; height: 14px;
-  border-top: 3px solid var(--red);
-  border-left: 3px solid var(--red);
-  z-index: 2;
-  pointer-events: none;
-}
-
 .tool-card {
   position: relative;
   display: flex;
@@ -334,45 +231,6 @@ h1, h2, h3 {
   align-items: center;
   padding: 14px 18px;
   border-bottom: 1px solid var(--line-2);
-}
-
-.code {
-  font-family: var(--mono);
-  font-weight: 700;
-  font-size: 11px;
-  letter-spacing: .08em;
-  color: #fff;
-  background: var(--ink);
-  padding: 3px 7px;
-  border-radius: 2px;
-}
-
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: .05em;
-  text-transform: uppercase;
-}
-
-.status.green { color: var(--green); }
-.status.amber { color: var(--amber-text); }
-
-.led {
-  width: 9px; height: 9px;
-  border-radius: 1px;
-  background: currentColor;
-  box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 18%, transparent);
-}
-
-.led.pulse { animation: pulse 1.6s ease-in-out infinite; }
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: .35; }
 }
 
 .card-body {
@@ -418,17 +276,6 @@ h1, h2, h3 {
   align-items: center;
   padding: 12px 18px;
   border-top: 1px solid var(--line-2);
-}
-
-.tag {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  border: 1px solid var(--line);
-  padding: 2px 7px;
-  border-radius: 2px;
 }
 
 .card-open {
@@ -535,6 +382,3 @@ h1, h2, h3 {
   .readout-value { font-size: 26px; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-}

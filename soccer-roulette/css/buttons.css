@@ -1,44 +1,36 @@
-.btn {
-  font-family: "Space Mono", monospace;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 10px 20px;
-  border-radius: 4px;
+/* ───────────────────────────────────────────
+   BOTONES Y PESTAÑAS
+   (.btn y variantes → ../../shared.css)
+─────────────────────────────────────────── */
+.mode-tabs {
+  display: flex;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.mode-tab {
+  flex: 1;
+  padding: 10px 16px;
+  background: var(--paper);
+  border: 0;
   cursor: pointer;
-  transition: all 0.2s;
-  border: 1px solid var(--border);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: background .15s, color .15s;
 }
-.btn-primary {
-  background: var(--orange);
-  color: #0a0a0a;
-  border-color: var(--orange);
-  font-weight: 700;
-}
-.btn-primary:hover {
-  background: var(--orange-dim);
-  border-color: var(--orange-dim);
-}
-.btn-secondary {
-  background: transparent;
-  color: var(--text-muted);
-  border-color: var(--border);
-}
-.btn-secondary:hover {
-  border-color: var(--orange);
-  background: rgba(255, 106, 0, 0.04);
-  color: var(--text);
-}
-.btn-sm {
-  padding: 7px 14px;
-  font-size: 10px;
-}
-.btn-danger {
-  background: transparent;
-  color: #888;
-  border-color: var(--border);
-}
-.btn-danger:hover {
-  border-color: #ef4444;
-  color: #ef4444;
+.mode-tab:hover { color: var(--text); background: var(--sand); }
+.mode-tab.active { background: var(--ink); color: var(--on-ink); }
+
+.btn-remove {
+  padding: 4px 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  margin-left: 4px;
 }
