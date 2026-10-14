@@ -62,7 +62,7 @@ Define `PB_URL`, la dirección del servidor PocketBase que usan Fuerza, Doomsday
 
 ### `shared.css`
 
-Todas las apps comparten un mismo archivo base con las variables de diseño (colores, fuentes), el reset CSS y las texturas de fondo (grilla y ruido). Cada app solo define sus estilos propios en su `styles.css`.
+Todas las apps (menos el dashboard, que tiene su propio diseño estilo panel industrial en `styles.css`) comparten un mismo archivo base con las variables de diseño (colores, fuentes), el reset CSS y las texturas de fondo (grilla y ruido). Cada app solo define sus estilos propios en su `styles.css`.
 
 ---
 
@@ -78,14 +78,14 @@ Todo vanilla: HTML, CSS y JS, sin build tools. Única dependencia externa: el SD
 2. **Editar el `index.html`** — cambiar título, categoría y descripción en el header
 3. **Escribir los estilos** en `styles.css` (variables y fondo ya vienen de `shared.css`)
 4. **Crear `main.js`** con la lógica de la app
-5. **Registrarla** en el array `TOOLS` del `main.js` raíz (con `quick: "Nombre"` aparece también en el acceso rápido)
+5. **Registrarla** en el array `TOOLS` del `main.js` raíz (con `quick: "Nombre"` aparece también en el acceso rápido; si necesita un ícono nuevo, se agrega su SVG a `ICONS`)
 6. Si guarda datos en PocketBase, cargar el SDK y `../config.js` antes de su `main.js`
 
 ```js
 {
   title:  "Nombre",
   desc:   "Para qué sirve",
-  icon:   "🔧",
+  icon:   "tool",        // clave de ICONS en main.js
   tag:    "Categoría",
   href:   "nombre-carpeta/index.html",
   status: "active"
