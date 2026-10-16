@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partidos de Fútbol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/buttons.css" />
+    <link rel="stylesheet" href="css/tabla.css" />
+    <link rel="stylesheet" href="css/roulette.css" />
+    <link rel="stylesheet" href="css/footer-tabs.css" />
+  </head>
+  <body>
+
+    <header class="site-header">
+      <a href="../index.html" class="back-btn">Dashboard</a>
+      <div class="header-center">
+        <div class="header-sub">Asistencia · Pagos · Equipos</div>
+        <h1>Partidos de <span class="em">fútbol</span></h1>
+        <p>Confirma quién va, anota cómo pagó cada uno y arma equipos parejos según la valoración.</p>
+      </div>
+      <div></div>
+    </header>
+
+    <main>
+
+      <!-- ─── RESUMEN ─── -->
+      <section class="kpis" aria-label="Resumen del partido">
+        <div class="kpi">
+          <span class="kpi-lbl">Confirmados</span>
+          <span class="kpi-val num" id="k-asisten">00</span>
+          <span class="kpi-sub" id="k-asisten-sub">de 00 jugadores</span>
+        </div>
+        <div class="kpi">
+          <span class="kpi-lbl">Pagados</span>
+          <span class="kpi-val num green" id="k-pagados">00</span>
+          <span class="kpi-sub" id="k-pagados-sub">—</span>
+        </div>
+        <div class="kpi">
+          <span class="kpi-lbl">Sin pagar</span>
+          <span class="kpi-val num" id="k-deben">00</span>
+          <span class="kpi-sub">de los confirmados</span>
+        </div>
+      </section>
+
+      <!-- ─── TABLA DE JUGADORES ─── -->
+      <section class="card corner">
+        <div class="panel-head">
+          <h2>Jugadores</h2>
+          <div class="head-actions">
+            <button class="btn btn-sm" id="btn-nuevo">Nuevo partido</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="players-table">
+            <thead>
+              <tr>
+                <th class="c-num">#</th>
+                <th><button class="sort" data-sort="name">Jugador <span></span></button></th>
+                <th>Pos.</th>
+                <th><button class="sort" data-sort="skill">Valoración <span></span></button></th>
+                <th><button class="sort" data-sort="asiste">Asiste <span></span></button></th>
+                <th><button class="sort" data-sort="pago">Pago <span></span></button></th>
+                <th class="c-act"><span class="sr-only">Quitar</span></th>
+              </tr>
+            </thead>
+            <tbody id="players-body"></tbody>
+          </table>
+        </div>
+
+        <!-- Agregar jugador -->
+        <form class="add-row" id="add-form" autocomplete="off">
+          <label class="add-field grow">
+            <span class="field-label">Nombre</span>
+            <input class="input" id="new-name" type="text" placeholder="Nombre del jugador…" required maxlength="24" />
+          </label>
+          <label class="add-field">
+            <span class="field-label">Posición</span>
+            <select class="input" id="new-pos">
+              <option value="ARQ">Arquero</option>
+              <option value="DEF">Defensor</option>
+              <option value="MED">Mediocampista</option>
+              <option value="DEL" selected>Delantero</option>
+            </select>
+          </label>
+          <label class="add-field">
+            <span class="field-label">Valoración <b class="num" id="skill-display">7</b></span>
+            <input class="skill-slider" id="new-skill" type="range" min="1" max="10" value="7" />
+          </label>
+          <button class="btn btn-dark" type="submit">+ Agregar</button>
+        </form>
+      </section>
+
+      <!-- ─── RULETA ─── -->
+      <section class="card roulette-section">
+        <div class="panel-head">
+          <h2>Sorteo de equipos</h2>
+          <span class="panel-meta"><span class="num" id="selected-count-label">0</span> confirmados</span>
+        </div>
+        <div class="roulette-canvas-wrap">
+          <canvas id="roulette" width="320" height="320"></canvas>
+          <div class="roulette-pointer"></div>
+        </div>
+        <div class="spin-state" id="spin-state">
+          <div class="spin-msg" id="spin-msg">Sorteando jugadores…</div>
+        </div>
+        <div class="roulette-controls">
+          <button class="btn btn-primary" id="btn-sortear">Sortear equipos</button>
+          <button class="btn" id="btn-reset">Reiniciar</button>
+          <span class="sel-label">Solo entran los que confirmaron · equipos balanceados por valoración</span>
+        </div>
+      </section>
+
+      <!-- ─── RESULTADO ─── -->
+      <section id="teams-output" hidden>
+        <div class="section-label">Resultado del sorteo</div>
+        <div class="teams-display">
+          <div class="card team-card team-a">
+            <div class="team-header">
+              <div class="team-name">Equipo A</div>
+              <div class="team-avg-badge" id="avg-a">—</div>
+            </div>
+            <div id="team-a-players"></div>
+          </div>
+          <div class="card team-card team-b">
+            <div class="team-header">
+              <div class="team-name">Equipo B</div>
+              <div class="team-avg-badge" id="avg-b">—</div>
+            </div>
+            <div id="team-b-players"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span>Partidos de fútbol — se guarda en este dispositivo</span>
+      <span>v2.0</span>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

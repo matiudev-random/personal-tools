@@ -15,13 +15,13 @@ const TOOLS = [
     quick:  "Rodilla",
   },
   {
-    title:  "Ruleta Equipos",
-    desc:   "Ruleta para distribuir los equipos de forma equitativa en los partidos.",
+    title:  "Partidos de Fútbol",
+    desc:   "Lista de jugadores con asistencia y forma de pago; arma equipos parejos según la valoración.",
     icon:   "shuffle",
     tag:    "Deporte",
-    href:   "soccer-roulette/index.html",
+    href:   "partidos-futbol/index.html",
     status: "active",
-    quick:  "Ruleta",
+    quick:  "Partidos",
   },
   {
     title:  "Camino a Doomsday",

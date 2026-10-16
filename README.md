@@ -15,8 +15,8 @@ Una colección de herramientas que fui armando para resolver problemas concretos
 ### 🏠 Dashboard
 La página de inicio. Muestra todas las herramientas disponibles en formato de tarjetas, con un reloj en vivo y accesos rápidos en la barra inferior.
 
-### ⚽ Ruleta de Fútbol (`/soccer-roulette`)
-Para cuando hay que armar equipos y nadie se pone de acuerdo. Cargás los jugadores con su posición y nivel de habilidad, girás la ruleta y el algoritmo los divide en dos equipos lo más balanceados posible. La ruleta es con Canvas y queda bastante bien visualmente.
+### ⚽ Partidos de Fútbol (`/partidos-futbol`)
+Para organizar las pichangas con los amigos. Una tabla con todos los jugadores donde marcás quién confirmó asistencia (sí/no) y cómo pagó (transferencia, efectivo o no pagado), con un resumen de confirmados y deudores. Con los confirmados se gira la ruleta y se arman dos equipos parejos: misma cantidad de jugadores, un arquero por lado si hay dos y promedios de valoración lo más cercanos posible. Jugadores, valoración, asistencia y pagos se guardan en el `localStorage` del navegador; "Nuevo partido" limpia asistencia y pagos pero conserva la lista y las valoraciones.
 
 ### 🦵 Rehabilitación de Rodilla (`/knee-rehab`)
 Hecha cuando tuve tendinopatía rotuliana para no perderme entre tantos ejercicios y fases. Son 5 fases progresivas (desde reposo hasta volver a jugar al fútbol), con los ejercicios de cada sesión, series/reps y algunas notas. Incluye la "regla del dolor" para saber cuándo parar.
@@ -45,7 +45,7 @@ personal-tools/
 ├── _template/          # Punto de partida para nuevas apps
 │   ├── index.html
 │   └── styles.css
-├── soccer-roulette/    # + css/ (estilos por sección)
+├── partidos-futbol/    # + css/ (estilos por sección)
 ├── knee-rehab/         # + js/data.js (fases y ejercicios)
 ├── doomsday-timeline/
 ├── fuerza-531/         # + plan.js (ejercicios), pb_schema.json y js/
@@ -54,7 +54,7 @@ personal-tools/
 
 ### Apps con varios archivos
 
-Fuerza y Monitor están partidos en varios archivos de ~20–180 líneas dentro de `js/`, uno por responsabilidad (cálculos, render, eventos, sincronización, etc.). Rodilla separa los datos (`js/data.js`) de la lógica (`main.js`), y la Ruleta divide sus estilos en `css/`. No usan módulos ni build: son scripts normales que comparten el scope global, así que **el orden de los `<script>` en el `index.html` importa**. `main.js` solo contiene el arranque y se carga al final.
+Fuerza y Monitor están partidos en varios archivos de ~20–180 líneas dentro de `js/`, uno por responsabilidad (cálculos, render, eventos, sincronización, etc.). Rodilla separa los datos (`js/data.js`) de la lógica (`main.js`), y Partidos divide sus estilos en `css/`. No usan módulos ni build: son scripts normales que comparten el scope global, así que **el orden de los `<script>` en el `index.html` importa**. `main.js` solo contiene el arranque y se carga al final.
 
 ### `config.js`
 

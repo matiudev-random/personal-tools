@@ -1,7 +1,6 @@
 /* ───────────────────────────────────────────
    RULETA Y RESULTADO
 ─────────────────────────────────────────── */
-.roulette-section { margin-bottom: 24px; }
 
 .roulette-canvas-wrap {
   position: relative;
@@ -65,6 +64,7 @@ canvas#roulette {
 /* Equipos */
 .teams-display {
   display: grid;
+  margin-bottom: 4px;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }

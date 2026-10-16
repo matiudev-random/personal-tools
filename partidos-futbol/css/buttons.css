@@ -1,0 +1,76 @@
+/* ───────────────────────────────────────────
+   CONTROLES DE LA TABLA
+   (.btn y variantes → ../../shared.css)
+─────────────────────────────────────────── */
+.head-actions { display: flex; gap: 8px; }
+
+/* Selector compacto (posición / pago) */
+.mini-select {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 5px 6px;
+  cursor: pointer;
+  outline: none;
+}
+.mini-select:focus { border-color: var(--ink); box-shadow: 0 0 0 3px rgba(22,24,27,.1); }
+
+/* Valoración − n + */
+.stepper {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.stepper button {
+  width: 30px;
+  border: 0;
+  background: transparent;
+  font-family: var(--mono);
+  font-size: 15px;
+  color: var(--muted);
+  cursor: pointer;
+}
+.stepper button:hover { background: var(--sand); color: var(--text); }
+.stepper .num {
+  min-width: 28px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 15px;
+  border-left: 1px solid var(--line-2);
+  border-right: 1px solid var(--line-2);
+}
+
+/* Sí / No */
+.seg {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.seg button {
+  padding: 5px 12px;
+  border: 0;
+  background: var(--paper);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--faint);
+  cursor: pointer;
+}
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button:hover { color: var(--text); }
+.seg button[data-asiste="1"][aria-pressed="true"] { background: var(--green); color: #fff; }
+.seg button[data-asiste="0"][aria-pressed="true"] { background: var(--ink); color: var(--on-ink); }
+
+.btn-remove, .c-act .btn { padding: 5px 8px; font-family: var(--mono); font-size: 12px; }
