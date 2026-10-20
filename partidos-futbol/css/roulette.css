@@ -62,6 +62,15 @@ canvas#roulette {
 }
 
 /* Equipos */
+.teams-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.teams-head .section-label { margin-bottom: 0; }
+
 .teams-display {
   display: grid;
   margin-bottom: 4px;

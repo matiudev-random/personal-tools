@@ -239,6 +239,7 @@ const ctx = canvas.getContext("2d");
 const W = 320, H = 320, CX = W / 2, CY = H / 2, R = 145;
 let spinning = false;
 let currentAngle = 0;
+let lastTeams = null;   // [equipoA, equipoB] del último sorteo
 
 const confirmed = () => players.filter(p => p.asiste);
 
@@ -357,6 +358,7 @@ function teamRows(team) {
 
 function showTeams(sel) {
   const [tA, tB] = balancedSplit(sel);
+  lastTeams = [tA, tB];
   const avg = t => (t.reduce((s, p) => s + p.skill, 0) / t.length).toFixed(1);
   $("avg-a").textContent = `${tA.length} jug · Prom ${avg(tA)}`;
   $("avg-b").textContent = `${tB.length} jug · Prom ${avg(tB)}`;
@@ -367,6 +369,7 @@ function showTeams(sel) {
 }
 
 function resetSorteo() {
+  lastTeams = null;
   $("teams-output").hidden = true;
   $("spin-state").classList.remove("active");
   currentAngle = 0;
@@ -375,6 +378,43 @@ function resetSorteo() {
 
 $("btn-sortear").addEventListener("click", startSorteo);
 $("btn-reset").addEventListener("click", resetSorteo);
+
+
+/* ─────────────────────────────────────────
+   COPIAR (texto plano para mandar por IG)
+───────────────────────────────────────── */
+const numbered = list => list.map((p, i) => `${i + 1}. ${p.name}`).join("\n");
+
+async function copyText(text, okMsg) {
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch (e) {
+    // Respaldo para navegadores sin Clipboard API (o sin HTTPS)
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand("copy");
+    ta.remove();
+    if (!ok) return toast("No se pudo copiar", true);
+  }
+  toast(okMsg);
+}
+
+$("btn-copiar-lista").addEventListener("click", () => {
+  const list = sortedPlayers().filter(p => p.asiste);
+  if (!list.length) return toast("Nadie confirmado todavía", true);
+  copyText(`⚽ Partido de fútbol\nConfirmados (${list.length}):\n\n${numbered(list)}`, "Lista copiada");
+});
+
+$("btn-copiar-equipos").addEventListener("click", () => {
+  if (!lastTeams) return toast("Primero sortea los equipos", true);
+  const [tA, tB] = lastTeams;
+  copyText(`⚽ Equipos\n\n🔴 Equipo A\n${numbered(tA)}\n\n⚫ Equipo B\n${numbered(tB)}`, "Equipos copiados");
+});
 
 
 /* ─────────────────────────────────────────
