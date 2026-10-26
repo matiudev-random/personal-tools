@@ -33,15 +33,6 @@ const TOOLS = [
     quick:  "Doomsday",
   },
   {
-    title:  "Fuerza 5/3/1",
-    desc:   "Tracker del plan Upper/Lower: pesos del día, reps y RPE, progreso del 1RM y revisión de TMs.",
-    icon:   "dumbbell",
-    tag:    "Deporte",
-    href:   "fuerza-531/index.html",
-    status: "active",
-    quick:  "Fuerza",
-  },
-  {
     title:  "Monitor",
     desc:   "Estado del servidor casero, accesos fallidos y revisión de seguridad de PocketBase.",
     icon:   "server",
@@ -57,7 +48,6 @@ const ICONS = {
   activity: '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
   shuffle:  '<path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2 4 4-4 4"/><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2"/><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/><path d="m18 14 4 4-4 4"/>',
   shield:   '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>',
-  dumbbell: '<path d="M6 5v14"/><path d="M18 5v14"/><path d="M3 8v8"/><path d="M21 8v8"/><path d="M6 12h12"/>',
   server:   '<rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01"/><path d="M6 18h.01"/>',
   home:     '<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/>',
   arrow:    '<path d="M5 12h14"/><path d="m13 6 6 6-6 6"/>',

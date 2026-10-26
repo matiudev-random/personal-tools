@@ -1,7 +1,7 @@
 /* ─────────────────────────────────────────
    PANEL ADMIN — superuser
    La sesión vive en sessionStorage (no queda guardada al cerrar la pestaña)
-   y en una llave propia, para no pisar el login de Doomsday o Fuerza.
+   y en una llave propia, para no pisar el login de Doomsday.
 ───────────────────────────────────────── */
 let pb = null;
 let adminTimer = null;
