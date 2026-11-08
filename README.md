@@ -18,9 +18,6 @@ La página de inicio. Muestra todas las herramientas disponibles en formato de t
 ### ⚽ Partidos de Fútbol (`/partidos-futbol`)
 Para organizar las pichangas con los amigos. Una tabla con todos los jugadores donde marcás quién confirmó asistencia (sí/no) y cómo pagó (transferencia, efectivo o no pagado), con un resumen de confirmados y deudores. Con los confirmados se gira la ruleta y se arman dos equipos parejos: misma cantidad de jugadores, un arquero por lado si hay dos y promedios de valoración lo más cercanos posible. Jugadores, valoración, asistencia y pagos se guardan en el `localStorage` del navegador; "Nuevo partido" limpia asistencia y pagos pero conserva la lista y las valoraciones.
 
-### 🦵 Rehabilitación de Rodilla (`/knee-rehab`)
-Hecha cuando tuve tendinopatía rotuliana para no perderme entre tantos ejercicios y fases. Son 5 fases progresivas (desde reposo hasta volver a jugar al fútbol), con los ejercicios de cada sesión, series/reps y algunas notas. Incluye la "regla del dolor" para saber cuándo parar.
-
 ### 🛡️ Camino a Doomsday (`/doomsday-timeline`)
 Orden cronológico interno de todo el UCM (pelis, series y especiales, más los universos aparte de Fox/Sony y las animaciones) para llegar a *Avengers: Doomsday* sin perderte nada. Tiene checklist con avance guardado en el navegador, filtros por prioridad (esencial / recomendado / opcional) y una cuenta regresiva en vivo al estreno.
 
@@ -43,14 +40,13 @@ personal-tools/
 │   ├── index.html
 │   └── styles.css
 ├── partidos-futbol/    # + css/ (estilos por sección)
-├── knee-rehab/         # + js/data.js (fases y ejercicios)
 ├── doomsday-timeline/
 └── server-monitor/     # + js/
 ```
 
 ### Apps con varios archivos
 
-Monitor está partido en varios archivos de ~20–180 líneas dentro de `js/`, uno por responsabilidad (cálculos, render, eventos, sincronización, etc.). Rodilla separa los datos (`js/data.js`) de la lógica (`main.js`), y Partidos divide sus estilos en `css/`. No usan módulos ni build: son scripts normales que comparten el scope global, así que **el orden de los `<script>` en el `index.html` importa**. `main.js` solo contiene el arranque y se carga al final.
+Monitor está partido en varios archivos de ~20–180 líneas dentro de `js/`, uno por responsabilidad (cálculos, render, eventos, sincronización, etc.). Partidos divide sus estilos en `css/`. No usan módulos ni build: son scripts normales que comparten el scope global, así que **el orden de los `<script>` en el `index.html` importa**. `main.js` solo contiene el arranque y se carga al final.
 
 ### `config.js`
 

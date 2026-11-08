@@ -6,15 +6,6 @@
 ───────────────────────────────────────── */
 const TOOLS = [
   {
-    title:  "Rodilla",
-    desc:   "Programa de recuperación para tendinopatía rotuliana. 3 meses, casa → gym → fútbol.",
-    icon:   "activity",
-    tag:    "Salud",
-    href:   "knee-rehab/index.html",
-    status: "active",
-    quick:  "Rodilla",
-  },
-  {
     title:  "Partidos de Fútbol",
     desc:   "Lista de jugadores con asistencia y forma de pago; arma equipos parejos según la valoración.",
     icon:   "shuffle",
