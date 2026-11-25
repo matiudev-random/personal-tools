@@ -18,6 +18,9 @@ La página de inicio. Muestra todas las herramientas disponibles en formato de t
 ### ⚽ Partidos de Fútbol (`/partidos-futbol`)
 Para organizar las pichangas con los amigos. Una tabla con todos los jugadores donde marcás quién confirmó asistencia (sí/no) y cómo pagó (transferencia, efectivo o no pagado), con un resumen de confirmados y deudores. Con los confirmados se gira la ruleta y se arman dos equipos parejos: misma cantidad de jugadores, un arquero por lado si hay dos y promedios de valoración lo más cercanos posible. Jugadores, valoración, asistencia y pagos se guardan en el `localStorage` del navegador; "Nuevo partido" limpia asistencia y pagos pero conserva la lista y las valoraciones.
 
+### 💸 Dividir Gastos (`/dividir-gastos`)
+Para repartir los gastos de una juntada o un viaje. Cargás las personas y cada gasto (qué fue, cuánto, quién pagó y entre quiénes se divide) y muestra cuánto puso y cuánto le tocaba a cada uno, más la lista **más corta posible** de transferencias para quedar a mano (búsqueda exacta por subgrupos que suman cero). Se copia el resumen para WhatsApp o se comparte la juntada entera con un link (los datos viajan en el `#hash`, no pasan por ningún servidor). Es un **único archivo HTML** autocontenido; se guarda en el `localStorage`.
+
 ### 🛡️ Camino a Doomsday (`/doomsday-timeline`)
 Orden cronológico interno de todo el UCM (pelis, series y especiales, más los universos aparte de Fox/Sony y las animaciones) para llegar a *Avengers: Doomsday* sin perderte nada. Tiene checklist con avance guardado en el navegador, filtros por prioridad (esencial / recomendado / opcional) y una cuenta regresiva en vivo al estreno.
 
@@ -40,6 +43,7 @@ personal-tools/
 │   ├── index.html
 │   └── styles.css
 ├── partidos-futbol/    # + css/ (estilos por sección)
+├── dividir-gastos/     # un solo index.html autocontenido
 ├── doomsday-timeline/
 └── server-monitor/     # + js/
 ```
